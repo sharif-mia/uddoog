@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="95.026" height="95.026" viewBox="0 0 95.026 95.026" style="">
+  <g id="failed-icon" transform="translate(-419.641 -283.891)">
+    <path id="Ellipse_8" data-name="Ellipse 8" transform="translate(419.641 283.891)" fill="#ef583f" d="M0,47.513A47.513,47.513 0,1,1 95.026,47.513A47.513,47.513 0,1,1 0,47.513" class="vRJriwtv_0"></path>
+    <g id="Group_1241" data-name="Group 1241">
+      <path id="Line_11" data-name="Line 11" transform="translate(448.144 314.998)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" d="M0,0L38.019,32.811" class="vRJriwtv_1"></path>
+      <path id="Line_12" data-name="Line 12" transform="translate(450.748 312.394)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" d="M0,38.019L32.811,0" class="vRJriwtv_2"></path>
+    </g>
+  </g>
+<style data-made-with="vivus-instant">.vRJriwtv_0{stroke-dasharray:299 301;stroke-dashoffset:300;animation:vRJriwtv_draw 900ms linear 0ms forwards;}.vRJriwtv_1{stroke-dasharray:51 53;stroke-dashoffset:52;animation:vRJriwtv_draw 900ms linear 0ms forwards;}.vRJriwtv_2{stroke-dasharray:51 53;stroke-dashoffset:52;animation:vRJriwtv_draw 900ms linear 0ms forwards;}@keyframes vRJriwtv_draw{100%{stroke-dashoffset:0;}}@keyframes vRJriwtv_fade{0%{stroke-opacity:1;}92.15686274509804%{stroke-opacity:1;}100%{stroke-opacity:0;}}</style></svg>

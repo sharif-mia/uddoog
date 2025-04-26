@@ -1,0 +1,308 @@
+%radio-check {
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1rem;
+}
+
+%shape {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid rgba(111, 118, 126, 0.4);
+  background: $white;
+  margin-right: 5px;
+  @extend .animate;
+}
+
+.checkbox {
+  @extend %radio-check;
+
+  a {
+    color: $pc;
+  }
+}
+
+.checkbox input,
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  @extend %shape;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox input:checked ~ .checkmark {
+  background: $pc;
+  border-color: $pc;
+}
+
+.checkmark:before {
+  opacity: 0;
+  font-family: "#{$icon-font-family}";
+  content: "\e931";
+  color: $white;
+  @extend .animate;
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: normal;
+}
+
+.checkbox input:checked ~ .checkmark:before {
+  opacity: 1;
+}
+
+// Radio
+.radio {
+  @extend %radio-check;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.radio-mark {
+  @extend %shape;
+  @include shadow(0 0 0 2px $gray-dark inset);
+  border-radius: 50%;
+}
+
+.radio input:checked ~ .radio-mark {
+  @include shadow(0 0 0px 10px $black inset);
+}
+
+.form {
+  &-label {
+    color: $text-color;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+  &-control {
+    @extend .animate;
+    resize: none;
+    color: $text-color;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.375rem;
+    height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(209, 213, 219, 1);
+    &:focus {
+      @include shadow(none);
+      outline: none;
+      border-color: $pc;
+    }
+
+    &::placeholder {
+      color: #9ca3af;
+      opacity: 1;
+    }
+  }
+
+  &-group {
+    position: relative;
+    margin: 0 0 15px;
+    &.focus {
+      .form-control {
+        border: 1px solid $pc;
+      }
+    }
+  }
+
+  &-error {
+    .form-control {
+      border-color: $red;
+    }
+
+    .form-label {
+      color: $red;
+    }
+  }
+}
+
+select.form-control {
+  background-color: $white;
+  background-image: url("#{$img-path}/search-dropdown.svg");
+  background-position: calc(100% - 10px) center;
+  background-repeat: no-repeat;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  @include cover(16px);
+  font-size: 1rem;
+  line-height: normal;
+  border-radius: 0.375rem;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .select-style select {
+    padding: 14px 15px;
+  }
+}
+
+select.form-control option {
+  background: #ebebeb none repeat scroll 0 0;
+  border: medium none;
+  color: $black;
+  padding: 4px 0;
+}
+
+select.form-control option:hover {
+  color: #fff;
+}
+
+select.form-control:focus {
+  outline: medium none;
+  border-color: $pc;
+}
+
+textarea.form-control {
+  background: $white;
+  min-height: 96px;
+  border-radius: 0.375rem;
+}
+.el-select__wrapper {
+  align-items: center;
+  background-color: #fff;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  gap: 6px;
+  border-radius: 0.375rem !important;
+  height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(209, 213, 219, 1);
+  position: relative;
+  text-align: left;
+  transform: translateZ(0);
+  @extend .animate;
+  color: $text-color;
+  display: block;
+  width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="text"]:-webkit-autofill,
+input[type="tel"]:-webkit-autofill input[type="password"]:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+input[type="file"] {
+  margin: auto;
+  border-radius: 0.375rem;
+  background-color: #fff;
+  width: 100%;
+  padding: 15px 20px;
+  border: 1.5px solid rgba(111, 118, 126, 0.4);
+  transition: border-color 0.25s ease-in-out;
+  line-height: normal;
+  height: auto;
+  &::file-selector-button {
+    padding: 1em 1.5em;
+    border-width: 0;
+    border-radius: 2em;
+    background-color: $pc;
+    color: $white;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+    margin-right: 1em;
+  }
+  &:hover {
+    border-color: #888;
+
+    &::file-selector-button {
+      background-color: $sc;
+    }
+  }
+}
+.upload {
+  cursor: pointer;
+  border-radius: 0.375rem;
+  border: 2px dashed rgba(209, 213, 219, 1);
+  justify-content: center;
+  align-items: center;
+  min-height: 5rem;
+  padding: 1.125rem;
+  display: flex;
+  transition: 0.2s linear;
+  flex-wrap: wrap;
+  i{
+    font-size: 36px;
+    margin: auto auto 1rem;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(209, 213, 219, 1);
+    color: $black;
+  }
+  &-input {
+    display: none;
+  }
+  h4 {
+    color: $black;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+  }
+  p {
+    font-size: 0.85rem;
+  }
+  &:hover{
+    border-color: $pc;
+  }
+}
+.sub-subcategory-group,
+.subcategory-group{
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(209, 213, 219, 1);
+}
+.subcategory-group {
+  margin-bottom: 1rem;
+  
+}
+
+.sub-subcategory-group {
+  margin-left: 1rem;
+  &-heading{
+    background: $off-white;
+    display: flex;
+    margin: -1rem -1rem 1rem;
+    padding: 1rem;
+    border-radius: 0.375rem 0.375rem 0 0;
+    align-items: center;
+  }
+}

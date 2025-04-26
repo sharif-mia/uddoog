@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="95.026" height="95.026" viewBox="0 0 95.026 95.026" style="">
+  <g id="success-icon" transform="translate(-264.439 -283.891)">
+    <path id="Ellipse_7" data-name="Ellipse 7" transform="translate(264.439 283.891)" fill="#27ae60" d="M0,47.513A47.513,47.513 0,1,1 95.026,47.513A47.513,47.513 0,1,1 0,47.513" class="uMBzeayy_0"></path>
+    <path id="Path_24" data-name="Path 24" d="M287.974,334.181,306.98,348.51,335.929,314.3" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" class="uMBzeayy_1"></path>
+  </g>
+<style data-made-with="vivus-instant">.uMBzeayy_0{stroke-dasharray:299 301;stroke-dashoffset:300;animation:uMBzeayy_draw 1000ms linear 0ms forwards;}.uMBzeayy_1{stroke-dasharray:69 71;stroke-dashoffset:70;animation:uMBzeayy_draw 1000ms linear 0ms forwards;}@keyframes uMBzeayy_draw{100%{stroke-dashoffset:0;}}@keyframes uMBzeayy_fade{0%{stroke-opacity:1;}92.3076923076923%{stroke-opacity:1;}100%{stroke-opacity:0;}}</style></svg>

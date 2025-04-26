@@ -1,0 +1,464 @@
+{
+  "sellers": [
+    {
+      "id": "7b13",
+      "phoneNumber": "01964037334",
+      "otp": "123456",
+      "personalInfo": {
+        "username": "Sharif",
+        "name": "Sharif Mia",
+        "email": "sharif@mia.com",
+        "password": "12345678",
+        "confirmPassword": "12345678"
+      },
+      "shopInfo": {
+        "shopName": "Sharif Store",
+        "shopAddress": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+        "district": "Dhaka",
+        "shopWebsite": "https://www.shwapno.com",
+        "shopLogo": "https://www.shwapno.com/images/shwapno_logo.png",
+        "shopInvoice": true,
+        "shopLicence": {}
+      }
+    },
+    {
+      "id": "3736",
+      "phoneNumber": "1234567890",
+      "otp": "123456",
+      "personalInfo": {
+        "username": "Sharif",
+        "name": "sdfgh",
+        "email": "abc@gmail.com",
+        "password": "12345678",
+        "confirmPassword": "12345678"
+      },
+      "shopInfo": {
+        "shopName": "Sharif Store",
+        "shopAddress": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+        "district": "Dhaka",
+        "shopWebsite": "",
+        "shopLogo": null,
+        "shopInvoice": true,
+        "shopLicence": null
+      }
+    },
+    {
+      "id": "e4d0",
+      "phoneNumber": "01234353464",
+      "otp": "234345",
+      "personalInfo": {
+        "username": "w4te5yrt",
+        "name": "rutyfuy",
+        "email": "rty",
+        "password": "4567",
+        "confirmPassword": "4567"
+      },
+      "shopInfo": {
+        "shopName": "zsdfgfhgh",
+        "shopAddress": "dff",
+        "district": "dfygh",
+        "shopWebsite": "",
+        "shopLogo": "dtfg",
+        "shopInvoice": true,
+        "shopLicence": null
+      }
+    }
+  ],
+  "customers": [
+    {
+      "name": "Rafiqul Islam",
+      "phone": "01964037334",
+      "district": "Brahmanbaria",
+      "upazila": "",
+      "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+      "note": "free Delivery",
+      "id": "bcf6"
+    },
+    {
+      "id": "014b",
+      "name": "Sharif Mia",
+      "phone": "01964037335",
+      "district": "Noakhali",
+      "upazila": "",
+      "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+      "note": ""
+    },
+    {
+      "name": "Shafiqul Islam",
+      "phone": "01713239318",
+      "district": "Dhaka",
+      "upazila": "",
+      "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+      "note": "Out of Dhaka",
+      "id": "883a"
+    },
+    {
+      "id": "b01c",
+      "name": "Sharif Mia",
+      "phone": "01964037338",
+      "district": "Noakhali",
+      "upazila": "",
+      "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+      "note": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": "742c",
+      "name": "Electronics Device",
+      "subcategories": [
+        {
+          "id": "bfca731f-cd9d-4f8d-afd3-8e6c0dabf243",
+          "name": "Smartphones",
+          "subSubcategories": [
+            {
+              "id": "a6f98308-8029-4d06-968a-e0b71b23ecd2",
+              "name": "Samsung Phones"
+            },
+            {
+              "id": "9060fb8e-c034-48f6-a8af-c6095eb3c432",
+              "name": "Apple Phones"
+            },
+            {
+              "id": "10a55023-444c-458d-aa27-12f917097e90",
+              "name": "vivo Phones"
+            }
+          ]
+        },
+        {
+          "id": "5a65e514-bbd1-42d8-8c54-5f977e0fb263",
+          "name": "Refrigerator ",
+          "subSubcategories": [
+            {
+              "id": "d7462991-c1c1-4140-a5ba-fcd824afd8e8",
+              "name": "Whirlpool"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9b2c",
+      "name": "Computers & Laptops",
+      "subcategories": [
+        {
+          "id": "249a4a16-b3b4-45c2-986c-4375df390319",
+          "name": "Computer Accessories",
+          "subSubcategories": [
+            {
+              "id": "ace85bc8-6ae6-44ad-9df4-78e4c952b1b6",
+              "name": "Mouse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5eb6",
+      "name": "Health & Beauty",
+      "subcategories": [
+        {
+          "id": "9d351cb9-9ae0-46a6-a948-aa6c19737ea0",
+          "name": "Beauty Tools",
+          "subSubcategories": [
+            {
+              "id": "df14062d-2e72-4c88-8830-316869324f1b",
+              "name": "Hair Dryers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c450",
+      "name": "Home Appliances",
+      "subcategories": [
+        {
+          "id": "d52f74b8-4d1c-4d32-a7ee-2582487a47ef",
+          "name": "Irons & Garment Steamers",
+          "subSubcategories": [
+            {
+              "id": "9100a080-48bf-46ea-8384-5fa6f704b3fd",
+              "name": "Irons"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "c4aa",
+      "name": "Amazfit GTS 2 Smartwatch Global Version – Black",
+      "categoryId": "742c",
+      "subcategoryId": "bfca731f-cd9d-4f8d-afd3-8e6c0dabf243",
+      "subSubcategoryId": "9060fb8e-c034-48f6-a8af-c6095eb3c432",
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/a/m/amazfit-gts-2_watch_price_in_bd.png",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/a/m/amazfit-gts-2-smartwatch-global-version-black-in-bd-at-bdshopcomZYiO.jpg"
+      ],
+      "description": "Pedometer, Heart Rate Monitor, Sleep Monitor, Calorie Count Warranty: 12 Months Brand Warranty (One-time replacement in whole warranty period",
+      "colors": [
+        {
+          "name": "Black",
+          "value": "#000000"
+        },
+        {
+          "name": "Pink",
+          "value": "#FFC0CB"
+        }
+      ],
+      "sizesInput": "S,M",
+      "ownerPrice": 20000,
+      "sellerPrice": 24002,
+      "sizes": [
+        "S",
+        "M"
+      ]
+    },
+    {
+      "id": "ed21",
+      "name": "Huawei MatePad 10.4 WiFi Edition 10.4 IPS LCD Tab (4 GB Ram, 128 GB Storage)",
+      "categoryId": "742c",
+      "subcategoryId": "bfca731f-cd9d-4f8d-afd3-8e6c0dabf243",
+      "subSubcategoryId": "a6f98308-8029-4d06-968a-e0b71b23ecd2",
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4.jpg",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4_1.jpg",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4_2.jpg"
+      ],
+      "description": "Brand: Samsung\\nModel: Galaxy A16 4G\\nOperating System: Android (announced in October 2024)\\nChipset: MediaTek Helio G99",
+      "colors": [
+        {
+          "name": "Black",
+          "value": "#000000"
+        },
+        {
+          "name": "Blue",
+          "value": "#4046e7"
+        }
+      ],
+      "sizesInput": "S,M",
+      "ownerPrice": 150000,
+      "sellerPrice": 175000,
+      "sizes": [
+        "S",
+        "M"
+      ]
+    },
+    {
+      "id": "955a",
+      "name": "Xiaomi Rechargeable Mini Desktop Fan (SOLOVE F5)",
+      "categoryId": "742c",
+      "subcategoryId": "5a65e514-bbd1-42d8-8c54-5f977e0fb263",
+      "subSubcategoryId": "d7462991-c1c1-4140-a5ba-fcd824afd8e8",
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/x/i/xiaomi_solove_f5_fan_offer_price_in_bd.jpeg",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/x/i/xiaomi_rechargeable_mini_desktop_fan_solove_f5_.jpg"
+      ],
+      "description": "An adjustable fan head is fully capable of pivoting and reaching a 60-degree",
+      "colors": [
+        {
+          "name": "Gray",
+          "value": "#dedede"
+        }
+      ],
+      "sizesInput": "236L",
+      "quantity": "21",
+      "ownerPrice": 3099,
+      "sellerPrice": 4490,
+      "sizes": [
+        ""
+      ]
+    },
+    {
+      "id": "d4c5",
+      "name": "Logitech MX Master 2S Wireless Mouse",
+      "categoryId": "9b2c",
+      "subcategoryId": "249a4a16-b3b4-45c2-986c-4375df390319",
+      "subSubcategoryId": "ace85bc8-6ae6-44ad-9df4-78e4c952b1b6",
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/l/o/logitech-mx-master-2s-wireless-mouse.png",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/l/o/logitech-mx-master-2s-wireless_mouse.jpg"
+      ],
+      "description": "Model: Logitech MX Master 2S \nNominal value: 1000 dpi\nDPI (Minimal and maximal value): 200 to 4000 dpi\nBattery: rechargeable Li-Po (500 mAh) battery\nWireless operating distance: 10m\nWarranty: 1-years",
+      "colors": [
+        {
+          "name": "Black",
+          "value": "#000000"
+        },
+        {
+          "name": "Gray",
+          "value": "#000000"
+        }
+      ],
+      "sizesInput": "Regular",
+      "quantity": "1423",
+      "ownerPrice": 8000,
+      "sellerPrice": 10000,
+      "sizes": [
+        "Regular"
+      ]
+    },
+    {
+      "id": "03a6",
+      "name": "Original Philips HP8142 1000 Watts Hair Dryer",
+      "categoryId": "5eb6",
+      "subcategoryId": "9d351cb9-9ae0-46a6-a948-aa6c19737ea0",
+      "subSubcategoryId": "df14062d-2e72-4c88-8830-316869324f1b",
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/p/h/philips_hp8142_hair_dryer.jpg",
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/p/h/philips_hp8142_hair_dryer_1.jpg"
+      ],
+      "description": "Wattage: 1000W\nCord length: 1.5m\nHanging loop: Yes\nNarrow Concentrator: Yes\nBrand: Philips\n1 year of warranty.",
+      "colors": [
+        {
+          "name": "Black",
+          "value": "#000000"
+        }
+      ],
+      "sizesInput": "",
+      "quantity": "125",
+      "ownerPrice": 2500,
+      "sellerPrice": 2800,
+      "sizes": [
+        ""
+      ]
+    },
+    {
+      "id": "3ebd",
+      "name": "Havells Insta Plus Non Stick Coated Dry Iron 1000W (Peach & Grey)",
+      "categoryId": "c450",
+      "subcategoryId": "d52f74b8-4d1c-4d32-a7ee-2582487a47ef",
+      "subSubcategoryId": "9100a080-48bf-46ea-8384-5fa6f704b3fd",
+      "images": ["https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havells_insta_plus_dry_iron_1000w_non_stick_coated_peach_grey_.png"],
+      "description": "Style Classic\nWattage: 1000 W\nCord length: 1.7 m\nVoltage: 230 V, 50 Hz\nItem Weight 800 Grams\nMade in: India",
+      "colors": [
+        {
+          "name": "Gray",
+          "value": "#7d7d7d"
+        },
+        {
+          "name": "Peach",
+          "value": "#f759b5"
+        }
+      ],
+      "sizesInput": "",
+      "quantity": "54",
+      "ownerPrice": 1850,
+      "sellerPrice": 2500,
+      "sizes": [
+        ""
+      ]
+    },
+    {
+      "id": "3ebdrc",
+      "name": "Havit H2019U Game Note USB 7.1 Surround Sound RGB Gaming Headphone",
+      "categoryId": "c450",
+      "subcategoryId": "d52f74b8-4d1c-4d32-a7ee-2582487a47ef",
+      "subSubcategoryId": "9100a080-48bf-46ea-8384-5fa6f704b3fd",
+      "images": ["https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havit-71-gaming-headset-headphones-with-microphonergb-light-for-pc-xbox-professional-gamer-h2019u.jpg"],
+      "description": "Best Budget Studio Monitoring Headphone This headphone also can be used for music It can be used for Gaming Comfortable Over-Ear Headphone 7 Days Replacement Warranty.Made in China.",
+      "colors": [
+        {
+          "name": "Black",
+          "value": "#000"
+        },
+        {
+          "name": "Red",
+          "value": "#ff3300"
+        }
+      ],
+      "sizesInput": "",
+      "quantity": "54",
+      "ownerPrice": 3250,
+      "sellerPrice": 4200,
+      "sizes": [
+        ""
+      ]
+    }
+  ],
+  "tickets": [
+    {
+      "id": "3227",
+      "type": "Support",
+      "subject": "Issue with Order ORD-1002",
+      "status": "OPEN",
+      "lastUpdated": "2025-04-03T14:16:22.304Z",
+      "description": "terytuyi"
+    },
+    {
+      "id": "9f87",
+      "type": "Billing",
+      "subject": "Issue with Order ORD-1003",
+      "status": "Cancel",
+      "lastUpdated": "2025-04-03T14:17:18.641Z",
+      "description": "sdfghjkl"
+    },
+    {
+      "id": "2c34",
+      "type": "Support",
+      "subject": "Issue with Order ORD-1003",
+      "status": "Pending",
+      "lastUpdated": "2025-04-11T19:18:27.418Z",
+      "description": "Payment failure"
+    },
+    {
+      "id": "0838",
+      "type": "Billing",
+      "orderIssue": "Payment failure",
+      "subject": "Issue with Order ORD-1002",
+      "status": "Closed",
+      "lastUpdated": "2025-04-11T20:58:55.003Z",
+      "description": "Failed"
+    },
+    {
+      "id": "c9ec",
+      "type": "Support",
+      "orderIssue": "Wrong item received",
+      "subject": "Issue with Order ORD-1002",
+      "status": "OPEN",
+      "lastUpdated": "2025-04-13T06:02:16.808Z",
+      "description": ""
+    }
+  ],
+  "orders":[
+    {
+      "invoice": "#3066",
+      "date": "Jan 6, 2024",
+      "time": "12:23 PM",
+      "price": 120,
+      "originalPrice": 90,
+      "phone": "017742398424",
+      "customer": "Mr Zafar Khan",
+      "district": "Gazipur",
+      "status": "Successful",
+      "actions": ["Delete"]
+    },
+    {
+      "invoice": "#3065",
+      "date": "Jan 6, 2024",
+      "time": "3:32 PM",
+      "price": 412,
+      "originalPrice": 240,
+      "phone": "018342378724",
+      "customer": "Kazi Mohammad Kabir",
+      "district": "Brahmanbaria",
+      "status": "Cancel",
+      "actions": ["Delete", "Edit"]
+    },
+    {
+      "invoice": "#3065",
+      "date": "Jan 6, 2024",
+      "time": "6:21 PM",
+      "price": 870,
+      "originalPrice":560,
+      "phone": "0193627234222",
+      "customer": "Farhana Zaman",
+      "district": "Jhenaidah",
+      "status": "Shipped",
+      "actions": ["Tracking"]
+    }
+  ]
+  
+}

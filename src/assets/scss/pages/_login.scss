@@ -1,0 +1,258 @@
+.login {
+  &-container {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+  }
+  &-img {
+    background-attachment: fixed;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-self: flex-start;
+    width: 40%;
+    background-color: $off-white;
+    img {
+      height: 100vh;
+      object-fit: cover;
+    }
+    &-content {
+      position: absolute;
+      bottom: 0;
+      z-index: 9;
+      background: linear-gradient(to top, black, transparent);
+      width: 100%;
+      padding: 40px;
+      color: $white;
+      h1 {
+        font-weight: 700;
+        font-size: 30px;
+        margin-top: 0;
+        color: $white;
+      }
+      p {
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 70%;
+        margin: 0;
+        color: $white;
+      }
+    }
+  }
+  &-body {
+    width: 60%;
+    padding: 15px 0;
+  img {
+      height: 44px;
+  }
+    p {
+      a,
+      strong {
+        color: $black;
+        font-weight: 500;
+      }
+    }
+    .el-collapse {
+      border: none;
+      &-item {
+        padding: 15px 20px;
+        border: 1px solid rgba($gray, 0.6);
+        border-radius: 12px;
+        margin: 15px 0;
+        &.is-active {
+          border-color: $pc;
+        }
+        &__header {
+          h3 {
+            color: $black;
+            i {
+              font-size: 24px;
+              margin-right: 10px;
+            }
+          }
+        }
+        &__header,
+        &__wrap {
+          border: none;
+        }
+        &__arrow {
+          margin: 0 0 0 auto;
+          font-size: 18px;
+        }
+        &__content {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+  &-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+    li {
+      a {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: 1px solid rgba($gray, 0.6);
+        border-radius: 50%;
+        font-size: 18px;
+        line-height: 44px;
+        color: $black;
+      }
+    }
+  }
+}
+.otp-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+input {
+    text-align: center;
+  }
+}
+
+
+.password {
+  position: relative;
+  &-toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: $black;
+      font-size: 18px
+  }
+}
+.review-heading{
+    @extend %paycard;
+    font-size: 24px;
+    font-weight: 500;
+}
+%paycard {
+  background: $off-white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.preview-card {
+  @extend %paycard;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      color: $text-color;
+      strong {
+        display: block;
+        color: $black;
+        font-weight: 500;
+      }
+      img,strong{
+        display: block;
+        margin-top: 8px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+.package-type {
+  label {
+    display: block;
+    margin: 0;
+  }
+  &-box {
+    @extend %paycard;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    h3,
+    h4 {
+      font-weight: 600;
+      margin: 0;
+    }
+    h4 {
+      font-weight: 500;
+    }
+  }
+  input {
+    display: none;
+    &:checked + .package-type-box {
+      .icon-radio {
+        color: $pc;
+        &:before {
+          content: "\ea54";
+        }
+      }
+    }
+  }
+}
+.payment {
+  &-box {
+    @extend %paycard;
+    padding: 0;
+    height: 86px;
+    color: $black;
+    box-shadow: 0 0 0 1px rgba($pc, 0) inset;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s linear;
+    justify-content: center;
+  }
+  &-type {
+    label {
+      margin: 0;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      li {
+        label {
+          display: block;
+        }
+        img {
+          height: 24px;
+        }
+        &:nth-child(2) {
+          img {
+            height: 32px;
+          }
+        }
+      }
+    }
+
+    input {
+      display: none;
+      &:checked + .payment-box {
+        background-color: $off-white !important;
+        box-shadow: 0 0 0 2px $pc inset;
+        color: $pc;
+      }
+    }
+  }
+}
