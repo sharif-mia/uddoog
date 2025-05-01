@@ -14,7 +14,7 @@
   }
 }
 .page {
-  padding: 72px 0px 0px 280px;
+  padding: 0 0px 0px 280px;
   &__inner {
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
   }
 }
 .nav {
-  position: fixed;
+  position: static;
   top: 0px;
   left: 280px;
   right: 0px;

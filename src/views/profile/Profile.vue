@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8">
       <form @submit.prevent="submitForm">
-        <div class="personal-info">
+        <div class="personal-info card mb-3 p-3">
           <h3><i class="icon-user"></i> Your Personal Information</h3>
           <div class="form-group">
             <label class="form-label">Full Name</label>
@@ -56,8 +56,8 @@
           </el-collapse>
         </div>
 
-        <div class="shop-info">
-          <h3 class="my-3"><i class="icon-shop"></i> Your Shop Information</h3>
+        <div class="shop-info card p-3 mb-3">
+          <h3 class="mb-3"><i class="icon-shop"></i> Your Shop Information</h3>
           <div class="form-group">
             <label class="form-label">Your Shop Name</label>
             <input type="text" class="form-control" v-model="formData.shopInfo.shopName" placeholder="Enter your shop name" />
@@ -87,7 +87,7 @@
               <span class="checkmark"></span> I want to use my logo in my invoice
             </label>
           </div>
-          <div class="form-group">
+          <div class="form-group m-0">
             <label class="form-label">Upload your valid trade licence</label>
             <label class="upload">
               <input class="upload-input" title="" type="file" value="" />
@@ -147,13 +147,9 @@ export default {
         console.error("Error submitting form:", error);
       }
     },
-    changePassword() {
-     
-    },
-   
-    includeLogoInInvoice() {
-      
-    },
+    changePassword() {},
+
+    includeLogoInInvoice() {},
   },
 };
 </script>

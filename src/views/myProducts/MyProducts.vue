@@ -16,7 +16,7 @@
   </h2>
   
   <div v-if="products.length > 0" class="product-grid">
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <Product v-for="product in products" :key="product.id" :showWishlist="false" :showCart="true" :showStore="false" :product="product" />
     <router-link class="upload" :to="{ name: 'addProducts' }">
     <div>
       <i class="icon-plus"></i> 

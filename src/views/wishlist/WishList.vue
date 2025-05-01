@@ -15,7 +15,7 @@
   </h2>
 
   <div v-if="products.length > 0" class="product-grid">
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <Product v-for="product in products" :key="product.id" :showWishlist="true" :product="product" />
   </div>
   <div v-else>
     <router-link class="upload" :to="{ name: 'allProducts' }"

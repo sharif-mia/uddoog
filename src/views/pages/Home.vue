@@ -65,7 +65,7 @@
 
         <div class="tab-content">
           <div class="products">
-            <a href="" v-for="product in filteredProducts" :key="product.id" class="product-card">
+            <router-link  :to="{ name: 'productDetails' }" v-for="product in filteredProducts" :key="product.id" class="product-card">
               <div class="product-card__img">
                 <img :src="product.images[0]" alt="Product Image" />
               </div>
@@ -73,7 +73,7 @@
                 <p class="name">{{ product.name }}</p>
                 <h3 class="price">৳{{ formatPrice(product.sellerPrice) }}</h3>
               </div>
-            </a>
+            </router-link>
           </div>
 
           <div class="profit-box">
@@ -103,7 +103,7 @@
       <h2 class="recommended__heading">Selected For You</h2>
 
       <div v-if="allProducts.length > 0" class="product-grid">
-        <Product v-for="product in selectedProducts" :key="product.id" :product="product" />
+        <Product v-for="product in selectedProducts" :key="product.id" :product="product" :showWishlist="true" :showDelete="false" />
       </div>
     </div>
   </section>

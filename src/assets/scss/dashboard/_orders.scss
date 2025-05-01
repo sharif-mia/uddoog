@@ -72,6 +72,74 @@
     }
   }
 }
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    width: 82%;
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    z-index: -1;
+    top: 15px;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  &__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    &--active .stepper__icon {
+      border-color: #007bff;
+      color: #007bff;
+    }
+
+    &--active .stepper__label {
+      color: #007bff;
+    }
+
+    &--current .stepper__icon {
+      border-color: #000;
+      color: #000;
+    }
+
+    &--current .stepper__label {
+      color: #000;
+      font-weight: bold;
+    }
+
+    &--disabled .stepper__icon,
+    &--disabled .stepper__label {
+      color: #bbb;
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-size: 14px;
+    color: #999;
+  }
+
+  &__label {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #999;
+  }
+}
+
 .tracking {
   &-container {
     max-width: 600px;
@@ -99,12 +167,12 @@
     }
     .el-timeline-item__timestamp {
       color: $black;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.85rem;
+      font-weight: 500;
     }
     .el-timeline-item__content {
       p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: $text-color;
       }
     }
@@ -160,7 +228,6 @@
     }
   }
   &__address {
-    margin: 1.125rem 0;
     @extend %dashCard;
 
     h4 {
@@ -168,6 +235,11 @@
       margin-bottom: 0.5rem;
       font-size: 1.125rem;
       color: $black;
+    }
+    p {
+      strong {
+        font-weight: 500;
+      }
     }
     ul {
       padding: 0;
@@ -186,23 +258,83 @@
   }
   &__shipping {
     display: flex;
-    justify-content: space-between;
     margin: 1rem 0;
+    align-items: center;
+    gap: 15px;
+    i {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f2350;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      color: #fff;
+    }
   }
 
   &__totals {
-    margin: 1.125rem 0;
     @extend %dashCard;
-    li {
-      color: $text-color;
-      font-weight: 500;
-      padding: 0.15rem 0;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+
+    position: relative;
+    &::after,
+    &::before {
+      content: "";
+      content: "";
+      width: 24px;
+      height: 30px;
+      border-radius: 50%;
+      background: #fff;
+      bottom: 41%;
+      position: absolute;
     }
-
+    &::before {
+      left: -10px;
+    }
+    &::after {
+      right: -10px;
+    }
+    h2 {
+      text-align: center;
+      sub {
+        bottom: 0;
+      }
+    }
+    ul {
+      margin: 0 0 0.5rem;
+      padding: 0;
+      li {
+        color: $text-color;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:not(:last-child) {
+          border-bottom: 1px solid #cad1e1;
+        }
+      }
+    }
   }
-
+  &__actions {
+    border-top: 2px dashed #cad1e1;
+    padding-top: 1.5rem;
+    .btn {
+      display: flex;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: center;
+      gap: 4px;
+      align-items: center;
+      i {
+        font-size: 1.5rem;
+      }
+      &-outline {
+        background: #fff;
+      }
+    }
+  }
 }

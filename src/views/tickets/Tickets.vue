@@ -26,7 +26,10 @@
         <tbody>
           <tr v-for="ticket in tickets" :key="ticket.id">
             <td>{{ ticket.type }}</td>
-            <td> <a class="text-black fw-500" href="#"><h3>{{ ticket.orderIssue }}</h3>{{ ticket.subject }}</a> </td>
+            <td>
+              <router-link class="text-black fw-500" :to="{ name: 'ticketDetails', params: { id: ticket.id } }">
+                <h3>{{ ticket.orderIssue }}</h3>{{ ticket.subject }}
+                </router-link> </td>
             <td>
                <span class="badge text-warning" v-if="ticket.status === 'OPEN'">{{ ticket.status }}</span>
                <span class="badge text-success" v-else-if="ticket.status === 'Closed'">{{ ticket.status }}</span>

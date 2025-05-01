@@ -23,11 +23,12 @@
       mix-blend-mode: multiply;
     }
   }
-
-  &__icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+&__actions{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1;
+  &-action {
     background: $white;
     color: $black;
     width: 32px;
@@ -38,14 +39,18 @@
     justify-content: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    z-index: 1;
+    &:not(:last-child){
+      margin-bottom: .5rem;
+    }
   }
+}
+  
   &__discount {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #ffeade;
-    color: #f57224;
+    background: rgba($orange, 0.8);
+    color: $white;
     border-radius: 0.275rem;
     cursor: pointer;
     z-index: 1;
@@ -65,7 +70,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-weight: 500;
-    color: #0099cc;
+    color: $blue;
   }
 
   &__sales,
@@ -90,26 +95,26 @@
     }
     strong {
       display: block;
-      font-weight: 500;
       i {
         font-size: 12px;
       }
     }
   }
   &__uddoog-price {
+    color: $purple;
     font-weight: 500;
     strong {
       display: block;
-      color: rgb(153, 153, 153);
     }
   }
   &__seller-price {
     font-weight: 500;
+    color: $blue;
     strong {
       font-size: 1rem;
       i {
         font-size: 14px;
-        color: #0099cc;
+        
       }
     }
   }

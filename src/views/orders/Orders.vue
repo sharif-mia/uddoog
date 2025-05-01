@@ -133,12 +133,31 @@
         <h1>Tracking Details <span>ID: 1DO08112MMV6799</span></h1>
         <div class="tracking-close" @click="trackOrders = false"><i class="icon-cross"></i></div>
       </div>
-      <el-steps :active="2" align-center>
-        <el-step title="Focused" />
-        <el-step title="In Transit" />
-        <el-step title="Out for Delivery" />
-        <el-step title="Dishamed" />
-      </el-steps>
+      <div class="stepper mb-4">
+        <div class="stepper__step stepper__step--active">
+          <div class="stepper__icon"><i class="icon-check"></i></div>
+          <div class="stepper__label">Accepted</div>
+        </div>
+        <div class="stepper__step stepper__step--active">
+          <div class="stepper__icon"><i class="icon-product"></i></div>
+          <div class="stepper__label">Picked</div>
+        </div>
+
+        <div class="stepper__step stepper__step--active">
+          <div class="stepper__icon"><i class="icon-track"></i></div>
+          <div class="stepper__label">In Transit</div>
+        </div>
+
+        <div class="stepper__step stepper__step--current">
+          <div class="stepper__icon"><i class="icon-delivery"></i></div>
+          <div class="stepper__label">Out for Delivery</div>
+        </div>
+
+        <div class="stepper__step stepper__step--disabled">
+          <div class="stepper__icon"><i class="icon-badge-check"></i></div>
+          <div class="stepper__label">Delivered</div>
+        </div>
+      </div>
 
       <el-timeline>
         <el-timeline-item timestamp="Order delivery has been on hold" placement="top">

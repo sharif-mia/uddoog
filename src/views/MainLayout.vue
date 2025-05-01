@@ -17,13 +17,17 @@
           </router-link>
           <div class="nav__search"><button class="nav__search__btn"><i class="icon icon-search"></i></button><input class="form-control" type="text" placeholder="What are you looking for"></div>
         <div class="header__links">
-          <router-link :to="{ name: 'login' }">
+          <router-link :to="{ name: 'login' }" v-if="!isLoggedIn">
             <i class="icon-login"></i>
             <span>Login</span>
           </router-link>
-          <router-link :to="{ name: 'signup' }">
+          <router-link :to="{ name: 'signup' }" v-if="!isLoggedIn">
             <i class="icon-user"></i>
             <span>Register Now</span>
+          </router-link>
+          <router-link :to="{ name: 'dashboard' }" v-else>
+            <i class="icon-user"></i>
+            <span>Dashboard</span>
           </router-link>
           <router-link :to="{ name: 'signup' }">
             <i class="icon-comment"></i>
@@ -128,5 +132,10 @@
 export default {
   components: {},
   methods: {},
+  computed: {
+    isLoggedIn() {
+      return !!localStorage.getItem('sellerToken');
+    }
+  }
 };
 </script>

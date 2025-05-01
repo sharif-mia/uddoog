@@ -23,6 +23,7 @@ import Signup from "@/views/sellers/Signup.vue";
 import Settings from "@/views/settings/Settings.vue";
 import TicketForm from "@/views/tickets/TicketForm.vue";
 import Tickets from "@/views/tickets/Tickets.vue";
+import showTicket from "@/views/tickets/TicketsShow.vue";
 import WishList from "@/views/wishlist/WishList.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -177,6 +178,11 @@ const routes = [
         path: "ticket/add",
         name: "addTicket",
         component: TicketForm,
+      },
+      {
+        path: "ticket/show/:id",
+        name: "ticketDetails",
+        component: showTicket,
       },
     ],
   },

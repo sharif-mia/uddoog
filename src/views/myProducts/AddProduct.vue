@@ -3,10 +3,9 @@
   <!-- <h2 class="page__title ">
     Add Product for  Zafar Mia
   </h2> -->
-  <el-alert class="col-gap" title="Add Product for Zafar Mia
-" type="info" :closable="false" />
+  <h3 class="customer-alert col-gap sticky">Add Product for Zafar Mia</h3>
   <div v-if="products.length > 0" class="product-grid">
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <Product v-for="product in products" :key="product.id"  :showWishlist="false"  :showDelete="false" :showCart="true" :showStore="false" :product="product" />
 
   </div>
   <div v-else class="no-products">
@@ -54,3 +53,15 @@ export default {
   },
 };
 </script>
+<style scoped>
+.customer-alert {
+    top: 0;
+    background: #0d5691;
+    display: block;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: .437rem;
+    color: #fff;
+    margin: 0;
+}
+</style>

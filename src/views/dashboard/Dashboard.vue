@@ -12,20 +12,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <h3><span class="countdown">-0:15</span> <sub>min</sub></h3>
-              </td>
-              <td><h4>120Tk</h4></td>
-              <td>SAMSUNG 670 Liter Twin Cooling with Convertible Top Mount Refrigerator</td>
-            </tr>
-            <tr>
-              <td>
-                <h3><span class="countdown">-0:12</span> <sub>min</sub></h3>
-              </td>
-              <td><h4>140Tk</h4></td>
-              <td>Whirlpool Refrigerator FreshMagic Pro Chromium Steel</td>
-            </tr>
+            <tr v-for="(payment, index) in payments" :key="index">
+          <td><h3><span class="countdown">{{ getMinutesPassed(payment.timestamp) }}</span> <sub>min</sub></h3></td>
+          <td>{{ payment.amount }}</td>
+          <td>{{ payment.product }}</td>
+        </tr>
+         
           </tbody>
         </table>
       </div>
@@ -116,7 +108,7 @@
     <router-link class="ml-auto btn-link" :to="{ name: 'myProducts' }"> <span>See all </span> <i class="icon-right"></i> </router-link>
   </h2>
   <div v-if="products.length > 0" class="product-grid">
-    <Product v-for="product in products" :key="product.id" :product="product" />
+    <Product v-for="product in products" :key="product.id" :product="product"  :showWishlist="false" :showCart="true" :showStore="false" />
     <router-link class="upload" :to="{ name: 'addProducts' }">
     <div>
       <i class="icon-plus"></i> 
@@ -145,6 +137,19 @@ export default {
   },
   data() {
     return {
+      payments: [
+        { 
+          timestamp: Date.now() - 900000,
+          amount: '120TK', 
+          product: 'Xiaomi Rechargeable Mini Desktop Fan (SOLOVE F5)' 
+        },
+        { 
+          timestamp: Date.now() - 720000,
+          amount: '140TK', 
+          product: 'Havells Insta Plus Non Stick Coated Dry Iron 1000W (Peach & Grey)' 
+        }
+      ],
+      now: Date.now(),
       products: [],
       loadingProducts: true,
       errorProducts: null,
@@ -163,9 +168,15 @@ export default {
         this.loadingProducts = false;
       }
     },
+    getMinutesPassed(timestamp) {
+      return Math.floor((this.now - timestamp) / 60000)
+    }
   },
   mounted() {
     this.fetchProducts();
+    setInterval(() => {
+      this.now = Date.now()
+    }, 60000) 
   },
 };
 </script>
