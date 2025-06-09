@@ -10,7 +10,6 @@
         </ul>
       </nav>
   
-      <!-- Product Information -->
       <div class="product-info">
         <div class="image-gallery">
           <button @click="prevImage">←</button>
@@ -56,7 +55,6 @@
         </div>
       </div>
   
-      <!-- Product Details Section -->
       <div class="product-details-section">
         <h2>Product Details</h2>
         <h3>Specification</h3>
@@ -122,7 +120,6 @@
         }
       },
       addToCart() {
-        // Logic to add the product to the cart
         alert(`Added ${this.quantity} of ${this.selectedColor} ${this.selectedSize} to the cart.`);
       },
     },

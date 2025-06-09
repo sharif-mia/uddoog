@@ -6,11 +6,14 @@
 .pending__payment {
   @extend %dashCard;
   background: $pc;
-      background-image: linear-gradient(45deg, $pc 25%, $purple);
+  // background-image: linear-gradient(45deg, $pc 25%, $purple);
+  background: linear-gradient(300deg, #0575e6, #021b79, #0575e6, #0575e6, #021b79);
+  background-size: 600% 300%;
+  animation: gradient-animation 45s ease infinite;
   color: $white;
-  padding-bottom: calc(1.25rem - .875rem);
-  .page__title{
-    color: $sc;
+  padding-bottom: calc(1.25rem - 0.875rem);
+  .page__title {
+    color: $white;
   }
   table {
     width: 100%;
@@ -38,15 +41,15 @@
     tbody {
       td {
         color: $white;
-        border-top: 1px solid rgba($white,.15);
+        border-top: 1px solid rgba($white, 0.15);
+        .el-statistic__content{
+        color: $white;
+
+        }
         h3 {
           font-weight: 600;
           span {
-            font-size: 1.5rem;
-          }
-          sub {
-            font-size: 0.75rem;
-            bottom: 0;
+            font-size: 1.25rem;
           }
         }
         h3,
@@ -57,21 +60,44 @@
     }
   }
 }
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .dashboard {
   &__track {
     @extend %dashCard;
-    background: $sc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $white;
+    // background-image: url(#{$bg});
+    background: $pc;
     i {
       font-size: 2rem;
     }
+    .page__title {
+      color: $white;
+    }
     h3 {
       margin: 0 0 1rem;
-      color: $pc;
-      font-size: .85rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      span{
+      span {
         font-weight: 500;
       }
+    }
+    .btn{
+      background: $yellow;
+      color: $pc;
+      border-color: $yellow;
     }
   }
   &__cta {
@@ -88,8 +114,8 @@
       color: $black;
       font-weight: 500;
       margin-bottom: 1.25rem;
-      font-size: .9rem;
-      transition: .2s linear;
+      font-size: 0.9rem;
+      transition: 0.2s linear;
       i {
         display: block;
         font-size: 1.5rem;
@@ -97,18 +123,16 @@
       $colors: (#f6938c, #98bc69, #e08a60, #d16cba, #7b9eef, #7bb674, #85c0c5, #ecba59, #9390c6, #e55b3d, #70a5e9, #e08a60, #9390c6, #89b46d, #f6938c, #7b9eef, #9390c6, #7bb674, #e08a60, #d16cba, #85c0c5, #ecba59, #98bc69, #e55b3d, #70a5e9, #7b9eef);
       @for $i from 1 through length($colors) {
         &:nth-child(#{$i}) {
-          border:1px solid rgba(nth($colors, $i),.2);
-          background: rgba(nth($colors, $i),.05);
+          border: 1px solid rgba(nth($colors, $i), 0.2);
+          background: rgba(nth($colors, $i), 0.05);
           i {
             color: nth($colors, $i);
           }
-          &:hover{
-            border:1px solid rgba(nth($colors, $i),.4);
+          &:hover {
+            border: 1px solid rgba(nth($colors, $i), 0.4);
           }
         }
-        
       }
-      
     }
   }
   &__cards {

@@ -96,12 +96,13 @@
     flex: 1;
 
     &--active .stepper__icon {
-      border-color: #007bff;
-      color: #007bff;
+      border-color: $blue;
+      color: $white;
+      background: $blue;
     }
 
     &--active .stepper__label {
-      color: #007bff;
+      color: $blue;
     }
 
     &--current .stepper__icon {
@@ -210,7 +211,24 @@
     font-size: 1.125rem;
   }
 }
+.my__cart{
 
+  .el-collapse-item__header{
+       background: none;
+    border-bottom: 1px solid #d1d5db !important;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-radius: 0;
+    color: $text-color;
+    h4{
+      margin: 0;
+      font-weight: 400;
+      strong{
+        font-weight: 600;
+      }
+    }
+  }
+}
 .order-summary {
   &__product {
     display: flex;
@@ -249,6 +267,11 @@
         font-weight: 500;
         padding: 0.15rem 0;
         font-size: 0.9rem;
+        &:first-child{
+        font-size: 1rem;
+        font-weight: 600;
+
+        }
       }
     }
 
@@ -276,36 +299,14 @@
 
   &__totals {
     @extend %dashCard;
+    background: $pc;
+    color: $white;
 
-    position: relative;
-    &::after,
-    &::before {
-      content: "";
-      content: "";
-      width: 24px;
-      height: 30px;
-      border-radius: 50%;
-      background: #fff;
-      bottom: 41%;
-      position: absolute;
-    }
-    &::before {
-      left: -10px;
-    }
-    &::after {
-      right: -10px;
-    }
-    h2 {
-      text-align: center;
-      sub {
-        bottom: 0;
-      }
-    }
     ul {
       margin: 0 0 0.5rem;
       padding: 0;
       li {
-        color: $text-color;
+        color: $white;
         font-weight: 500;
         padding: 0.5rem 0;
         font-size: 0.9rem;
@@ -315,12 +316,34 @@
         &:not(:last-child) {
           border-bottom: 1px solid #cad1e1;
         }
+        h4 {
+          font-size: 1.25rem;
+          margin: 0;
+        }
       }
     }
   }
   &__actions {
     border-top: 2px dashed #cad1e1;
     padding-top: 1.5rem;
+    position: relative;
+    margin-top: 1rem;
+    &::after,
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #fff;
+      top: -10px;
+      position: absolute;
+    }
+    &::before {
+      left: -35px;
+    }
+    &::after {
+      right: -35px;
+    }
     .btn {
       display: flex;
       width: 100%;
@@ -329,8 +352,11 @@
       justify-content: center;
       gap: 4px;
       align-items: center;
+      &:not(.btn-outline){
+        background: $blue;
+      }
       i {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
       &-outline {
         background: #fff;

@@ -4,96 +4,96 @@
     <div class="row">
       <div class="col-8">
         <form @submit.prevent="submitForm">
-      <div class="form-group">
-        <label class="form-label">Product Name</label>
-        <input type="text" v-model="formData.name" class="form-control" required />
-      </div>
-
-      <div class="row">
-        <div class="col-4 form-group">
-          <label class="form-label">Category</label>
-          <select v-model="formData.categoryId" class="form-control" required>
-            <option value="" disabled>Select a category</option>
-            <option v-for="category in categories" :key="category.id" :value="category.id">
-              {{ category.name }}
-            </option>
-          </select>
-        </div>
-        <div class="col-4 form-group">
-          <label class="form-label">Subcategory</label>
-          <select id="subcategory" v-model="formData.subcategoryId" class="form-control" required>
-            <option value="" disabled>Select a subcategory</option>
-            <option v-for="subcategory in subcategories" :key="subcategory.id" :value="subcategory.id">
-              {{ subcategory.name }}
-            </option>
-          </select>
-        </div>
-        <div class="col-4 form-group">
-          <label class="form-label">Sub-Subcategory</label>
-          <select id="subSubcategory" v-model="formData.subSubcategoryId" class="form-control" required>
-            <option value="" disabled>Select a sub-subcategory</option>
-            <option v-for="subSubcategory in subSubcategories" :key="subSubcategory.id" :value="subSubcategory.id">
-              {{ subSubcategory.name }}
-            </option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Product Images</label>
-        <input type="file" multiple @change="handleImageUpload" class="form-control" />
-      </div>
-      <div class="image-preview">
-        <div v-for="(image, index) in imagePreviews" :key="index" class="preview-item">
-          <img :src="image" alt="Product Image" class="preview-image" />
-          <button type="button" class="btn btn-danger btn-sm" @click="removeImage(index)"><i class="icon-trash"></i></button>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Description</label>
-        <textarea v-model="formData.description" class="form-control" required />
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Colors</label>
-        <div v-for="(color, index) in formData.colors" :key="index" class="color-group">
-          <input type="color" v-model="color.value" class="color-input" />
-          <input type="text" v-model="color.name" placeholder="Color Name" class="form-control" required />
-          <button type="button" class="btn btn-danger btn-sm" @click="removeColor(index)">Remove</button>
-        </div>
-        <button type="button" class="btn btn-secondary" @click="addColor">Add Color</button>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
           <div class="form-group">
-            <label class="form-label">Quantity</label>
-            <input type="text" v-model="formData.quantity" class="form-control" required />
+            <label class="form-label">Product Name</label>
+            <input type="text" v-model="formData.name" class="form-control" required />
           </div>
-        </div>
-        <div class="col-6">
+
+          <div class="row">
+            <div class="col-4 form-group">
+              <label class="form-label">Category</label>
+              <select v-model="formData.categoryId" class="form-control" required>
+                <option value="" disabled>Select a category</option>
+                <option v-for="category in categories" :key="category.id" :value="category.id">
+                  {{ category.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-4 form-group">
+              <label class="form-label">Subcategory</label>
+              <select id="subcategory" v-model="formData.subcategoryId" class="form-control" required>
+                <option value="" disabled>Select a subcategory</option>
+                <option v-for="subcategory in subcategories" :key="subcategory.id" :value="subcategory.id">
+                  {{ subcategory.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-4 form-group">
+              <label class="form-label">Sub-Subcategory</label>
+              <select id="subSubcategory" v-model="formData.subSubcategoryId" class="form-control" required>
+                <option value="" disabled>Select a sub-subcategory</option>
+                <option v-for="subSubcategory in subSubcategories" :key="subSubcategory.id" :value="subSubcategory.id">
+                  {{ subSubcategory.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label class="form-label">Sizes (comma-separated)</label>
-            <input type="text" v-model="formData.sizesInput" class="form-control" />
+            <label class="form-label">Product Images</label>
+            <input type="file" multiple @change="handleImageUpload" class="form-control" />
           </div>
-        </div>
-        <div class="col-6">
+          <div class="image-preview">
+            <div v-for="(image, index) in imagePreviews" :key="index" class="preview-item">
+              <img :src="image" alt="Product Image" class="preview-image" />
+              <button type="button" class="btn btn-danger btn-sm" @click="removeImage(index)"><i class="icon-trash"></i></button>
+            </div>
+          </div>
           <div class="form-group">
-            <label class="form-label">Owner Price</label>
-            <input type="number" v-model="formData.ownerPrice" class="form-control" required />
+            <label class="form-label">Description</label>
+            <textarea v-model="formData.description" class="form-control" required />
           </div>
-        </div>
-        <div class="col-6">
+
           <div class="form-group">
-            <label class="form-label">Seller Price</label>
-            <input type="number" v-model="formData.sellerPrice" class="form-control" required />
+            <label class="form-label">Colors</label>
+            <div v-for="(color, index) in formData.colors" :key="index" class="color-group">
+              <input type="color" v-model="color.value" class="color-input" />
+              <input type="text" v-model="color.name" placeholder="Color Name" class="form-control" required />
+              <button type="button" class="btn btn-danger btn-sm" @click="removeColor(index)">Remove</button>
+            </div>
+            <button type="button" class="btn btn-secondary" @click="addColor">Add Color</button>
           </div>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">
-        {{ isEdit ? "Update" : "Create" }}
-      </button>
-    </form>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Quantity</label>
+                <input type="text" v-model="formData.quantity" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Sizes (comma-separated)</label>
+                <input type="text" v-model="formData.sizesInput" class="form-control" />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Owner Price</label>
+                <input type="number" v-model="formData.ownerPrice" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="form-label">Seller Price</label>
+                <input type="number" v-model="formData.sellerPrice" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            {{ isEdit ? "Update" : "Create" }}
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -124,18 +124,18 @@ export default {
     };
   },
   async created() {
-    this.isEdit = !!this.$route.params.id; // Check if in edit mode
-    await this.fetchCategories(); // Fetch categories
+    this.isEdit = !!this.$route.params.id;
+    await this.fetchCategories();
     if (this.isEdit) {
-      this.fetchProduct(); // Fetch product data for editing
+      this.fetchProduct();
     }
   },
   watch: {
-    // Watch for changes in categoryId to fetch subcategories
+    // changes in categoryId to fetch subcategories
     "formData.categoryId": function (newCategoryId) {
       this.fetchSubcategories(newCategoryId);
     },
-    // Watch for changes in subcategoryId to fetch sub-subcategories
+    // changes in subcategoryId to fetch sub-subcategories
     "formData.subcategoryId": function (newSubcategoryId) {
       this.fetchSubSubcategories(newSubcategoryId);
     },
@@ -151,7 +151,6 @@ export default {
       }
     },
 
-    // Fetch subcategories based on the selected category
     async fetchSubcategories(categoryId) {
       try {
         const category = this.categories.find((cat) => cat.id === categoryId);
@@ -162,7 +161,6 @@ export default {
       }
     },
 
-    // Fetch sub-subcategories based on the selected subcategory
     async fetchSubSubcategories(subcategoryId) {
       try {
         const subcategory = this.subcategories.find((sub) => sub.id === subcategoryId);
@@ -173,7 +171,6 @@ export default {
       }
     },
 
-    // Fetch product data for editing
     async fetchProduct() {
       const productId = this.$route.params.id;
       try {
@@ -186,42 +183,36 @@ export default {
       }
     },
 
-    // Handle image upload
     handleImageUpload(event) {
       const files = event.target.files;
       for (const file of files) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.imagePreviews.push(e.target.result); // Add image preview
-          this.formData.images.push(file); // Add file to formData
+          this.imagePreviews.push(e.target.result);
+          this.formData.images.push(file);
         };
         reader.readAsDataURL(file);
       }
     },
 
-    // Remove an image
     removeImage(index) {
       this.imagePreviews.splice(index, 1);
       this.formData.images.splice(index, 1);
     },
 
-    // Add a new color
+    // Add color
     addColor() {
       this.formData.colors.push({ name: "", value: "#000000" });
     },
 
-    // Remove a color
+    // Remove color
     removeColor(index) {
       this.formData.colors.splice(index, 1);
     },
 
-    // Handle form submission
     async submitForm() {
       try {
-        // Format sizes as an array
         const sizes = this.formData.sizesInput.split(",").map((size) => size.trim());
-
-        // Prepare payload
         const payload = {
           ...this.formData,
           sizes,
@@ -229,15 +220,15 @@ export default {
         };
 
         if (this.isEdit) {
-          // Update existing product
+          // Update product
           await this.$axios.put(`http://localhost:3000/products/${this.$route.params.id}`, payload);
           alert("Product updated successfully!");
         } else {
-          // Create new product
+          // Create new
           await this.$axios.post("http://localhost:3000/products", payload);
           alert("Product created successfully!");
         }
-        this.$router.push({ name: "products" }); // Redirect to product list
+        this.$router.push({ name: "products" });
       } catch (error) {
         console.error("Error submitting form:", error);
         alert("An error occurred. Please try again.");

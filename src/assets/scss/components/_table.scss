@@ -54,10 +54,9 @@ table {
   }
   .badge {
     display: inline-flex;
-    padding: 2px .5rem;
-    border-radius: 6px;
-    border: 1px solid #efefef;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1.5rem;
     transition: backround 0.2s;
-    font-size: .875rem;
+    font-size: 0.9rem;
   }
 }

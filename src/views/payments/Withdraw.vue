@@ -1,5 +1,5 @@
 <template>
-  <h1 class="page__title d-flex">Payments</h1>
+  <h1 class="page__title d-flex mt-0">Withdraw Money</h1>
   <div class="payment__info" v-if="editPayments === false">
     <div class="row align-items-center">
       <div class="col-8">
@@ -12,7 +12,7 @@
             <h3>bKash Number : 017798767865 <span> Set since : Dec 19, 2024 </span></h3>
           </div>
         </div>
-        <p class="d-flex align-center gap-3 text-primary"><i class="icon-calendar"></i>Auto cash disbursements every sunday enable</p>
+        <p class="d-flex align-center gap-3 text-white mb-3"><i class="icon-calendar"></i>Auto cash disbursements every sunday enable</p>
         <button type="button" @click="editPayments = true" class="btn"><i class="icon-edit"></i> Edit</button>
       </div>
     </div>
@@ -27,12 +27,12 @@
         </div>
         <div v-if="currentTab === 'bKash'">
           <div class="form-group mt-3">
-            <label class="form-label">bKash Number</label>
+            <label class="form-label">bKash Number (Personal)</label>
             <input type="number" class="form-control" />
           </div>
         </div>
         <div v-if="currentTab === 'bank'">
-          <div class="form-group">
+          <div class="form-group mt-3">
             <label class="form-label">Cardholder Name</label>
             <input type="number" class="form-control" />
           </div>
@@ -57,19 +57,20 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="form-group">
+        <div class="auto__disbursement">
       <label class="checkbox">
         <input type="checkbox" name="payment" />
         <div class="checkmark"></div>
         Auto Cash Disbursement (Sunday) <small class="d-block text-muted">Earnings are automatically transferred to your account every Sunday</small>
       </label>
     </div>
+      </div>
+    </div>
+    
     <button class="btn" @click="editPayments = false" type="button">Submit</button>
   </form>
 
-  <div class="mt-3" v-if="payments.length != 0">
+  <div class="mt-4" v-if="payments.length != 0">
     <div class="card">
       <div class="table-responsive-md">
         <table class="table">
@@ -100,9 +101,9 @@
               <td>{{ payment.amount }}</td>
               <td>{{ payment.transferTo }}</td>
               <td>
-                <span class="badge text-success" v-if="payment.status === 'Successful'">{{ payment.status }}</span>
-                <span class="badge text-warning" v-else-if="payment.status === 'Pending'">{{ payment.status }}</span>
-                <span class="badge text-danger" v-else>{{ payment.status }}</span>
+                <span class="badge bg-success" v-if="payment.status === 'Successful'">{{ payment.status }}</span>
+                <span class="badge bg-warning" v-else-if="payment.status === 'Pending'">{{ payment.status }}</span>
+                <span class="badge bg-danger" v-else>{{ payment.status }}</span>
               </td>
               <td class="text-right">
                 <a class="btn-view"><i class="icon-eye"></i></a>

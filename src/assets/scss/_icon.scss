@@ -4,7 +4,7 @@ $icon-font-path: "../fonts" !default;
 
 @font-face {
   font-family: '#{$icon-font-family}';
-  src: url('#{$icon-font-path}/#{$icon-font-family}.woff?mkbyjg') format('woff');
+  src: url('#{$icon-font-path}/#{$icon-font-family}.woff?bnin56') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,18 +25,56 @@ $icon-font-path: "../fonts" !default;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-edit:before {
-  content: "\e909";
+.icon-tiktok:before {
+  content: "\e916";
 }
-
-.icon-amex:before {
-  content: "\e900";
+.icon-picked:before {
+  content: "\e985";
 }
-.icon-layout:before {
-  content: "\e901";
+.icon-medal:before {
+  content: "\e984";
 }
-.icon-cart:before {
-  content: "\e902";
+.icon-banknote:before {
+  content: "\e91b";
+}
+.icon-list:before {
+  content: "\e90e";
+}
+.icon-users:before {
+  content: "\e90f";
+}
+.icon-filter:before {
+  content: "\e910";
+}
+.icon-filter-fill:before {
+  content: "\e911";
+}
+.icon-badge-check:before {
+  content: "\e912";
+}
+.icon-badge-percent:before {
+  content: "\e913";
+}
+.icon-crown-fill:before {
+  content: "\e914";
+}
+.icon-crown:before {
+  content: "\e915";
+}
+.icon-medal-fill:before {
+  content: "\e933";
+}
+.icon-rewards:before {
+  content: "\e97b";
+}
+.icon-trophy:before {
+  content: "\e97c";
+}
+.icon-diamond-fill:before {
+  content: "\e97d";
+}
+.icon-diamond:before {
+  content: "\e97e";
 }
 .icon-visa:before {
   content: "\e903";
@@ -68,18 +106,6 @@ $icon-font-path: "../fonts" !default;
 .icon-phone:before {
   content: "\e91a";
 }
-.icon-left:before {
-  content: "\e91b";
-}
-.icon-right:before {
-  content: "\e91c";
-}
-.icon-down:before {
-  content: "\e91d";
-}
-.icon-up:before {
-  content: "\e91e";
-}
 .icon-apple:before {
   content: "\e91f";
 }
@@ -101,7 +127,7 @@ $icon-font-path: "../fonts" !default;
 .icon-arrow-up:before {
   content: "\e925";
 }
-.icon-badge-check:before {
+.icon-badge-checked:before {
   content: "\e926";
 }
 .icon-ban:before {
@@ -178,9 +204,6 @@ $icon-font-path: "../fonts" !default;
 }
 .icon-facebook:before {
   content: "\e940";
-}
-.icon-filter:before {
-  content: "\e941";
 }
 .icon-gift:before {
   content: "\e942";
@@ -341,7 +364,7 @@ $icon-font-path: "../fonts" !default;
 .icon-user-bold:before {
   content: "\e976";
 }
-.icon-users:before {
+.icon-teams:before {
   content: "\e977";
 }
 .icon-wallet:before {
@@ -352,6 +375,42 @@ $icon-font-path: "../fonts" !default;
 }
 .icon-whatsapp:before {
   content: "\e97a";
+}
+.icon-down:before {
+  content: "\e90a";
+}
+.icon-left:before {
+  content: "\e90b";
+}
+.icon-right:before {
+  content: "\e90c";
+}
+.icon-up:before {
+  content: "\e90d";
+}
+.icon-command:before {
+  content: "\e91c";
+}
+.icon-district:before {
+  content: "\e91d";
+}
+.icon-monitor:before {
+  content: "\e91e";
+}
+.icon-shield:before {
+  content: "\e982";
+}
+.icon-smartphone:before {
+  content: "\e983";
+}
+.icon-edit:before {
+  content: "\e909";
+}
+.icon-layout:before {
+  content: "\e901";
+}
+.icon-cart:before {
+  content: "\e902";
 }
 .icon-checkbox:before {
   content: "\ea53";
@@ -367,4 +426,28 @@ $icon-font-path: "../fonts" !default;
 }
 .icon-android:before {
   content: "\eac0";
+}
+.icon-barcode:before {
+  content: "\e941";
+}
+.icon-qrcode:before {
+  content: "\e981";
+}
+.icon-quotes-left:before {
+  content: "\e97f";
+}
+.icon-quotes-right:before {
+  content: "\e980";
+}
+.icon-infinity:before {
+  content: "\ea2f";
+}
+.icon-expand:before {
+  content: "\ea7b";
+}
+.icon-collapse:before {
+  content: "\ea7c";
+}
+.icon-amex:before {
+  content: "\e900";
 }

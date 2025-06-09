@@ -1,5 +1,5 @@
 <template>
-  <h2 class="page__title">Upcoming orders</h2>
+  <h2 class="page__title">Recent Orders</h2>
   <div class="mb-4">
     <div class="row">
       <div class="col-4">
@@ -62,7 +62,15 @@
       </div>
     </div>
   </div>
-  <h2 class="page__title">My Order</h2>
+  <h2 class="page__title d-flex">
+      My Order
+      <div class="d-flex ml-auto gap-3">
+        <a class="btn btn-outline">
+          <i class="icon-filter"></i>
+          <span>Filter</span>
+        </a>
+      </div>
+    </h2>
   <div class="card">
     <div v-if="orders.length != 0" class="table-responsive-md">
       <table class="table">
@@ -79,6 +87,7 @@
             <th>Customer</th>
             <th>District</th>
             <th>Status</th>
+            <th>Profit</th>
             <th class="text-right">Action</th>
           </tr>
         </thead>
@@ -104,16 +113,17 @@
             </td>
             <td>{{ order.district }}</td>
             <td>
-              <span class="badge text-warning" v-if="order.status === 'Shipped'">{{ order.status }}</span>
-              <span class="badge text-success" v-else-if="order.status === 'Successful'">{{ order.status }}</span>
-              <span class="badge text-danger" v-else-if="order.status === 'Cancel'">{{ order.status }}</span>
+              <span class="badge bg-warning" v-if="order.status === 'Shipped'">{{ order.status }}</span>
+              <span class="badge bg-success" v-else-if="order.status === 'Successful'">{{ order.status }}</span>
+              <span class="badge bg-danger" v-else-if="order.status === 'Cancel'">{{ order.status }}</span>
             </td>
+            <td><i class="icon-taka mr-1"></i>{{ order.profit }}</td>
             <td class="text-right">
               <router-link v-if="order.status === 'Cancel'" class="btn-edit" :to="{ name: 'orderSummary' }">
                 <i class="icon-edit"></i>
               </router-link>
               <a v-if="order.status === 'Successful' || order.status === 'Cancel'" class="text-danger" @click.prevent="deleteItem(order.invoice)"><i class="icon-trash"></i></a>
-              <button @click="trackOrders = true" class="btn btn-outline" v-if="order.status === 'Shipped'"><i class="icon-track"></i> Tracking</button>
+              <button @click="trackOrders = true" class="btn" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i> Tracking</button>
             </td>
           </tr>
         </tbody>

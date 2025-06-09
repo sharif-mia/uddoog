@@ -46,7 +46,10 @@
               <td>01</td>
               <td>2700tk</td>
               <td class="text-right">
-                <a @click.prevent="deleteItem()"><i class="icon-eye"></i></a>
+                <router-link class="btn-edit text-info" :to="{ name: 'addProducts', params: { id: customer.id } }">
+                  <i class="icon-cart"></i>
+                </router-link>
+                <a><i class="icon-eye"></i></a>
                 <router-link class="btn-edit" :to="{ name: 'editCustomer', params: { id: customer.id } }">
                   <i class="icon-edit"></i>
                 </router-link>

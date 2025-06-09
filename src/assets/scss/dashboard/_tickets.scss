@@ -46,8 +46,13 @@
   
         a {
           text-decoration: none;
-          color: #007bff;
+          color: rgb(0, 123, 255);
           font-size: 0.85rem;
+          border: 1px dashed;
+          display: block;
+          padding: 1rem;
+          border-radius: .475rem;
+          margin-bottom: 1rem;
   
           &:hover {
             text-decoration: underline;

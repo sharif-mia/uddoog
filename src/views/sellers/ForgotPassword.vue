@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="login-container">
       <div class="login-img">
-        <img src="../../assets/images/login-img.jpeg" alt="" />
+        <img src="@/assets/images/login-img.jpeg" alt="" />
         <div class="login-img-content">
           <h1>Become A Uddoog Seller Today!</h1>
           <p>Create a Uddoog seller account now and reach millions of customers!</p>

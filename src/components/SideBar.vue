@@ -1,14 +1,21 @@
 <template>
   <aside class="sidebar">
-   <div class="sidebar__customer">
-    <img height="36" src="@/assets/images/logo.svg" alt="" />
-    <h3>Mr. Kazi Zaman</h3>
-    <h4>
-      Total Balance <strong> <i class="icon-taka"></i> 20000.00 </strong>
-    </h4>
-   </div>
+    <div class="sidebar__customer">
+      <div class="sidebar__customer-logo">
+        <img v-if="isCollapse" src="@/assets/images/logo.svg" alt="logo" />
+        <img v-else src="@/assets/images/logo.svg" alt="logo" />
+      </div>
 
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
+      <div class="sidebar__customer-lavel">
+        <h3>Mr. Kazi Zaman</h3>
+        <el-tag type="primary">Diamond</el-tag>
+      </div>
+      <h4>
+        Balance <strong> <i class="icon-taka"></i> 20000.00 </strong>
+      </h4>
+    </div>
+
+    <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
       <el-menu-item index="1">
         <router-link :to="{ name: 'home' }">
           <i class="icon-home"></i>
@@ -21,9 +28,7 @@
           <span>Dashboard</span>
         </router-link>
       </el-menu-item>
-      <el-menu-item index="3">
-        <router-link :to="{ name: 'notifications' }"> <i class="icon-bell"></i> <span>Notification</span> <span class="ml-auto">(5)</span></router-link>
-      </el-menu-item>
+
       <el-menu-item index="4">
         <router-link :to="{ name: 'orders' }"><i class="icon-shopping-cart"></i> <span>My Order</span> </router-link>
       </el-menu-item>
@@ -46,21 +51,27 @@
         <router-link :to="{ name: 'wishList' }"> <i class="icon-heart"></i> <span>Wish List</span></router-link>
       </el-menu-item>
       <el-menu-item index="8">
-        <router-link :to="{ name: 'payments' }"> <i class="icon-card"></i> <span>Payment</span></router-link>
+        <router-link :to="{ name: 'transaction' }"> <i class="icon-document-signed"></i> <span>Transaction History</span></router-link>
       </el-menu-item>
       <el-menu-item index="9">
-        <router-link :to="{ name: 'profile' }"><i class="icon-user"></i> <span>My Profile</span> </router-link>
+        <router-link :to="{ name: 'withdraw' }"> <i class="icon-card"></i> <span>Withdraw Money</span></router-link>
       </el-menu-item>
       <el-menu-item index="10">
+        <router-link :to="{ name: 'users' }"><i class="icon-user"></i> <span>Manage Users</span> </router-link>
+      </el-menu-item>
+      <el-menu-item index="11">
+        <router-link :to="{ name: 'notifications' }"> <i class="icon-bell"></i> <span>Notification</span> <span class="ml-auto">(5)</span></router-link>
+      </el-menu-item>
+      <el-menu-item index="12">
         <router-link :to="{ name: 'settings' }"><i class="icon-settings"></i> <span>Settings</span> </router-link>
       </el-menu-item>
-      <!-- <el-menu-item index="11">
-        <router-link :to="{ name: 'dashboard' }"><i class="icon-receipt"></i> <span>Report</span> </router-link>
-      </el-menu-item> -->
-      <el-menu-item index="12">
+      <el-menu-item index="13">
+        <router-link :to="{ name: 'warranties' }"><i class="icon-receipt"></i> <span>Warranty Products</span> </router-link>
+      </el-menu-item>
+      <el-menu-item index="14">
         <router-link :to="{ name: 'tickets' }"> <i class="icon-headset"></i> <span>Support Center</span> </router-link>
       </el-menu-item>
-      <el-menu-item index="13">
+      <el-menu-item index="15">
         <a @click="logout"> <i class="icon-sign-out"></i> <span>Log Out</span></a>
       </el-menu-item>
     </el-menu>
@@ -83,3 +94,9 @@ export default {
   },
 };
 </script>
+<style>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+</style>

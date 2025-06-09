@@ -57,11 +57,11 @@ export default {
     this.fetchProduct();
   },
   watch: {
-    // Watch for changes in categoryId to fetch subcategories
+    // Changes in categoryId to fetch subcategories
     "formData.categoryId": function (newCategoryId) {
       this.fetchSubcategories(newCategoryId);
     },
-    // Watch for changes in subcategoryId to fetch sub-subcategories
+    // Changes in subcategoryId to fetch sub-subcategories
     "formData.subcategoryId": function (newSubcategoryId) {
       this.fetchSubSubcategories(newSubcategoryId);
     },

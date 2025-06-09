@@ -31,10 +31,10 @@
                 <h3>{{ ticket.orderIssue }}</h3>{{ ticket.subject }}
                 </router-link> </td>
             <td>
-               <span class="badge text-warning" v-if="ticket.status === 'OPEN'">{{ ticket.status }}</span>
-               <span class="badge text-success" v-else-if="ticket.status === 'Closed'">{{ ticket.status }}</span>
-               <span class="badge text-danger" v-else-if="ticket.status === 'Pending'">{{ ticket.status }}</span>
-               <span class="badge text-primary" v-else-if="ticket.status === 'Cancel'">{{ ticket.status }}</span>
+               <span class="badge bg-warning" v-if="ticket.status === 'OPEN'">{{ ticket.status }}</span>
+               <span class="badge bg-success" v-else-if="ticket.status === 'Closed'">{{ ticket.status }}</span>
+               <span class="badge bg-danger" v-else-if="ticket.status === 'Pending'">{{ ticket.status }}</span>
+               <span class="badge bg-info" v-else-if="ticket.status === 'Cancel'">{{ ticket.status }}</span>
               </td>
             <td>{{ formatDate(ticket.lastUpdated) }}</td>
           </tr>

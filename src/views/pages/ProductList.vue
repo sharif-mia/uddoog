@@ -116,7 +116,7 @@ export default {
         this.loadingCategories = true;
         const response = await this.$axios.get('http://localhost:3000/categories');
         this.categories = response.data;
-        // Auto-select first category if none selected
+        // Auto-select first category
         if (this.categories.length > 0 && !this.selectedCategory) {
           this.selectCategory(this.categories[0].id);
         }

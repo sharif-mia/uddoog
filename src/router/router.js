@@ -4,19 +4,22 @@ import CustomerForm from "@/views/customers/CustomerForm.vue";
 import Customers from "@/views/customers/Customers.vue";
 import Dashboard from "@/views/dashboard/Dashboard.vue";
 import DashboardLayout from "@/views/DashboardLayout.vue";
+import Invoice from "@/views/invoice/Invoice.vue";
 import MainLayout from "@/views/MainLayout.vue";
 import AddProducts from "@/views/myProducts/AddProduct.vue";
 import MyProducts from "@/views/myProducts/MyProducts.vue";
 import Notifications from "@/views/notifications/Notifications.vue";
 import Orders from "@/views/orders/Orders.vue";
 import OrderSummary from "@/views/orders/OrderSummary.vue";
+import Warranties from "@/views/orders/Warranties.vue";
 import Home from "@/views/pages/Home.vue";
 import ProductDetails from "@/views/pages/ProductDetails.vue";
 import AllProducts from "@/views/pages/ProductList.vue";
-import Payments from "@/views/payments/Payments.vue";
+import Withdraw from "@/views/payments/Withdraw.vue";
 import ProductForm from "@/views/products/ProductForm.vue";
 import Products from "@/views/products/Products.vue";
 import Profile from "@/views/profile/Profile.vue";
+import Rewards from "@/views/rewards/Rewards.vue";
 import ForgotPassword from "@/views/sellers/ForgotPassword.vue";
 import Login from "@/views/sellers/Login.vue";
 import Signup from "@/views/sellers/Signup.vue";
@@ -24,6 +27,10 @@ import Settings from "@/views/settings/Settings.vue";
 import TicketForm from "@/views/tickets/TicketForm.vue";
 import Tickets from "@/views/tickets/Tickets.vue";
 import showTicket from "@/views/tickets/TicketsShow.vue";
+import Transaction from "@/views/transaction/Transaction.vue";
+import UserForm from "@/views/users/UserForm.vue";
+import UserLog from "@/views/users/UserLog.vue";
+import Users from "@/views/users/Users.vue";
 import WishList from "@/views/wishlist/WishList.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -99,6 +106,26 @@ const routes = [
         component: CustomerForm,
       },
       {
+        path: "users",
+        name: "users",
+        component: Users,
+      },
+      {
+        path: "users/add",
+        name: "addUser",
+        component: UserForm,
+      },
+      {
+        path: "users/edit/:id",
+        name: "editUser",
+        component: UserForm,
+      },
+      {
+        path: "users/log/:id",
+        name: "logUser",
+        component: UserLog,
+      },
+      {
         path: "categories",
         name: "categories",
         component: Categories,
@@ -130,10 +157,21 @@ const routes = [
         component: ProductForm,
       },
       {
-        path: "payments",
-        name: "payments",
-        component: Payments,
+        path: "withdraw",
+        name: "withdraw",
+        component: Withdraw,
       },
+      {
+        path: "transactions",
+        name: "transaction",
+        component: Transaction,
+      },
+      {
+        path: "rewards",
+        name: "rewards",
+        component: Rewards,
+      },
+      
       {
         path: "wishlist",
         name: "wishList",
@@ -143,6 +181,11 @@ const routes = [
         path: "orders",
         name: "orders",
         component: Orders,
+      },
+      {
+        path: "warranties",
+        name: "warranties",
+        component: Warranties,
       },
       {
         path: "order-summary",
@@ -168,6 +211,11 @@ const routes = [
         path: "settings",
         name: "settings",
         component: Settings,
+      },
+      {
+        path: "invoice",
+        name: "invoice",
+        component: Invoice,
       },
       {
         path: "tickets",

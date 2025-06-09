@@ -234,6 +234,7 @@ $border-color: #e0e0e0;
     border-radius: 0.875rem;
     border: 1px solid darken($off-white, 05);
     margin-top: 1.5rem;
+    position: relative;
     .form-label {
       color: $black;
       font-size: 0.85rem;
@@ -257,11 +258,11 @@ $border-color: #e0e0e0;
       font-size: 1rem;
     }
   }
-  &__our-price{
+  &__our-price {
     color: $pc;
   }
-  &__sale-price{
-    color:#6A2D73;
+  &__sale-price {
+    color: #6a2d73;
   }
   &__quantity {
     &-controls {
@@ -300,7 +301,7 @@ $border-color: #e0e0e0;
   }
 
   &__description {
-    margin-top: 2rem;
+    margin-top: 1rem;
     height: 400px;
     overflow: hidden;
     position: relative;
@@ -372,38 +373,130 @@ $border-color: #e0e0e0;
     font-size: 1rem;
     margin: 0;
   }
+  &__profit {
+    border-style: dashed;
+    font-size: 1.25rem;
+    text-align: center;
+    color: $purple;
+    border-color: darken(#e6e8eb, 05);
+    background: #eeefef;
+    strong {
+      font-weight: 700;
+    }
+  }
   &__stock {
     font-size: 0.85rem;
     color: $black;
   }
 }
-.customer-info {
-  border: 1px solid #dbeafe;
-  border-radius: 0.875rem;
-  background: #f6f8fa;
-  padding: 1.25rem;
+.review {
+  &__item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
 
+  &__avatar {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: $pc;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    justify-content: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 50%;
+    color: #fff;
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 16px; // size of star icon
+    color: #f39c12; // gold-like color
+    margin: 0 0 10px;
+    .review__star {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      font-style: normal;
+      line-height: 1;
+      color: #ccc; // default gray for empty stars
+      transition: color 0.3s ease;
+
+      &.icon-star-fill {
+        color: #f39c12; // filled stars gold
+      }
+
+      &.icon-star {
+        color: #ccc; // empty stars gray
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
+    color: #333;
+  }
+
+  &__meta {
+    color: $black;
+    font-size: 1.125rem;
+    font-weight: 600;
+    span {
+      font-weight: normal;
+      color: $text-color;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.customer-info {
+  border-radius: 0.875rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  width: 100%;
+  background: #f4f4f4;
+  border: 2px solid #bfbfbf;
+  i {
+    font-size: 1.35em;
+    color: $black;
+    transform: translateY(8px);
+  }
   p {
     font-size: 0.85rem;
-    color: $text-color;
+    color: $black;
     line-height: 1.4;
-  }
-  .form-label {
-    margin: 0 0 5px;
+    font-weight: 600;
   }
   textarea.form-control {
     min-height: 72px;
+    background: none;
+    &:focus {
+      border-color: #bfbfbf;
+    }
   }
+
+
   &__actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   &__edit {
     font-size: 0.85rem;
-    color: #0f172a;
+    color: $white;
     cursor: pointer;
     font-weight: 600;
 
@@ -411,7 +504,85 @@ $border-color: #e0e0e0;
       color: #1e293b;
     }
   }
+  .form-label {
+    margin: 0 0 5px;
+    display: flex;
+    align-items: center;
+    color: $black;
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  .form-group:not(:last-child) {
+    border-bottom: 1px solid rgba($white, 0.2);
+  }
 }
+
+.qa {
+  border-top: 2px solid #e4e7ed;
+  padding-top: 1.5rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    color: $black;
+  }
+
+  &__list {
+    margin-top: 1rem;
+  }
+
+  &__item {
+    border-top: 1px solid rgb(204, 204, 204);
+    padding: 1rem 0px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.25rem;
+  }
+
+  &__badge {
+    background: $pc;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+  }
+  &__question {
+    margin-bottom: 1.25rem;
+    h4 {
+      font-weight: 600;
+      margin: 0;
+      font-size: 1rem;
+      color: $black;
+    }
+  }
+  &__text {
+    display: inline;
+  }
+
+  &__meta {
+    display: block;
+    font-size: 0.75rem;
+    color: $text-color;
+    margin-top: 0.3rem;
+  }
+
+  &__submit-answer {
+    margin-top: 0.5rem;
+  }
+}
+
 .related-products {
   h2 {
     font-size: 1.125rem;

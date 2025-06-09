@@ -174,12 +174,10 @@
             </a>
           </li>
         </ul>
-        <!-- Repeat .categories__item for each category -->
       </div>
     </div>
   </section>
 
-  <!-- Testimonial -->
   <section class="testimonial py-5">
     <div class="container">
       <div class="row justify-center">

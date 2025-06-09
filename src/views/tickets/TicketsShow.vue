@@ -46,25 +46,38 @@
 
       <div class="col-4 sticky">
         <div class="customer-info">
-          <h3 class="ticket__info-title">Ticket Information</h3>
-          <div class="form-group">
-            <label class="form-label">Requestor</label>
-            <p>Md . Imran Kamal Mia</p>
+          <h3 class="ticket__info-title mb-3">Ticket Information</h3>
+          
+          <div class="form-group d-flex gap-3">
+            <i class="icon-user mr-2"></i>
+            <div>
+              <label class="form-label">Requestor</label>
+              <p>Md . Imran Kamal Mia</p>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Department</label>
-            <p>Support</p>
+          
+          <div class="form-group d-flex gap-3">
+            <i class="icon-apps mr-2"></i>
+            <div>
+              <label class="form-label">Department</label>
+              <p>Support</p>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label">Submitted</label>
-            <p>01/08/2024 (08:24)</p>
+          <div class="form-group d-flex gap-3">
+            <i class="icon-calendar mr-2"></i>
+            <div>
+              <label class="form-label">Submitted</label>
+              <p>01/08/2024 (08:24)</p>
+            </div>
           </div>
-
-          <div class="form-group m-0">
-            <label class="form-label">Last Updated</label>
-            <p>3 minute ago</p>
+          <div class="form-group d-flex gap-3">
+            <i class="icon-clock mr-2"></i>
+            <div>
+              <label class="form-label">Last Updated</label>
+              <p>3 minute ago</p>
+            </div>
           </div>
         </div>
       </div>

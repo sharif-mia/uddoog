@@ -62,6 +62,27 @@
         "shopInvoice": true,
         "shopLicence": null
       }
+    },
+    {
+      "id": "def0",
+      "phoneNumber": "01745684573",
+      "otp": "234567",
+      "personalInfo": {
+        "username": "Jewel",
+        "name": "BHai",
+        "email": "jewel@google.com",
+        "password": "12345678",
+        "confirmPassword": "12345678"
+      },
+      "shopInfo": {
+        "shopName": "Jewl Store",
+        "shopAddress": "Gulshan",
+        "district": "Dhaka",
+        "shopWebsite": "Swapno.com",
+        "shopLogo": null,
+        "shopInvoice": true,
+        "shopLicence": null
+      }
     }
   ],
   "customers": [
@@ -100,6 +121,15 @@
       "upazila": "",
       "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
       "note": ""
+    },
+    {
+      "id": "62b5",
+      "name": "Jewel",
+      "phone": "0132424256",
+      "district": "Brahmanbaria",
+      "upazila": "",
+      "address": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+      "note": "retre setwtyet "
     }
   ],
   "categories": [
@@ -331,7 +361,9 @@
       "categoryId": "c450",
       "subcategoryId": "d52f74b8-4d1c-4d32-a7ee-2582487a47ef",
       "subSubcategoryId": "9100a080-48bf-46ea-8384-5fa6f704b3fd",
-      "images": ["https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havells_insta_plus_dry_iron_1000w_non_stick_coated_peach_grey_.png"],
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havells_insta_plus_dry_iron_1000w_non_stick_coated_peach_grey_.png"
+      ],
       "description": "Style Classic\nWattage: 1000 W\nCord length: 1.7 m\nVoltage: 230 V, 50 Hz\nItem Weight 800 Grams\nMade in: India",
       "colors": [
         {
@@ -357,7 +389,9 @@
       "categoryId": "c450",
       "subcategoryId": "d52f74b8-4d1c-4d32-a7ee-2582487a47ef",
       "subSubcategoryId": "9100a080-48bf-46ea-8384-5fa6f704b3fd",
-      "images": ["https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havit-71-gaming-headset-headphones-with-microphonergb-light-for-pc-xbox-professional-gamer-h2019u.jpg"],
+      "images": [
+        "https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havit-71-gaming-headset-headphones-with-microphonergb-light-for-pc-xbox-professional-gamer-h2019u.jpg"
+      ],
       "description": "Best Budget Studio Monitoring Headphone This headphone also can be used for music It can be used for Gaming Comfortable Over-Ear Headphone 7 Days Replacement Warranty.Made in China.",
       "colors": [
         {
@@ -420,9 +454,18 @@
       "status": "OPEN",
       "lastUpdated": "2025-04-13T06:02:16.808Z",
       "description": ""
+    },
+    {
+      "id": "d203",
+      "type": "Support",
+      "orderIssue": "Wrong item received",
+      "subject": "Issue with Order ORD-1001",
+      "status": "OPEN",
+      "lastUpdated": "2025-05-04T13:27:32.202Z",
+      "description": "Product not working"
     }
   ],
-  "orders":[
+  "orders": [
     {
       "invoice": "#3066",
       "date": "Jan 6, 2024",
@@ -433,7 +476,11 @@
       "customer": "Mr Zafar Khan",
       "district": "Gazipur",
       "status": "Successful",
-      "actions": ["Delete"]
+      "profit": 30,
+      "actions": [
+        "Delete"
+      ],
+      "id": "2cd3"
     },
     {
       "invoice": "#3065",
@@ -445,20 +492,346 @@
       "customer": "Kazi Mohammad Kabir",
       "district": "Brahmanbaria",
       "status": "Cancel",
-      "actions": ["Delete", "Edit"]
+      "profit": 210,
+      "actions": [
+        "Delete",
+        "Edit"
+      ],
+      "id": "8759"
     },
     {
       "invoice": "#3065",
       "date": "Jan 6, 2024",
       "time": "6:21 PM",
       "price": 870,
-      "originalPrice":560,
+      "originalPrice": 560,
       "phone": "0193627234222",
       "customer": "Farhana Zaman",
       "district": "Jhenaidah",
       "status": "Shipped",
-      "actions": ["Tracking"]
+      "profit": 430,
+      "actions": [
+        "Tracking"
+      ],
+      "id": "ac85"
+    }
+  ],
+  "warranties": [
+    {
+      "invoice": "#3066",
+      "date": "Jan 6, 2024",
+      "time": "12:23 PM",
+      "price": 120,
+      "originalPrice": 90,
+      "phone": "017742398424",
+      "customer": "Mr Zafar Khan",
+      "startDate": "Jan 6, 2024",
+      "endDate": "Jan 6, 2025",
+      "status": "Expired",
+      "actions": [
+        "Delete"
+      ],
+      "id": "2cd3"
+    },
+    {
+      "invoice": "#3065",
+      "date": "Jan 6, 2024",
+      "time": "3:32 PM",
+      "price": 412,
+      "originalPrice": 240,
+      "phone": "018342378724",
+      "customer": "Kazi Mohammad Kabir",
+      "startDate": "Mar 13, 2023",
+      "endDate": "Jan 6, 2024",
+      "status": "Valid",
+      "actions": [
+        "Delete",
+        "Edit"
+      ],
+      "id": "8759"
+    },
+    {
+      "invoice": "#3065",
+      "date": "Jan 6, 2024",
+      "time": "6:21 PM",
+      "price": 870,
+      "originalPrice": 560,
+      "phone": "0193627234222",
+      "customer": "Farhana Zaman",
+      "startDate": "Feb 10, 2025",
+      "endDate": "Aug 21, 2026",
+      "status": "Soon",
+      "actions": [
+        "Tracking"
+      ],
+      "id": "ac85"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "2396",
+      "created_at": "Apr 14, 2024",
+      "rating": "100",
+      "summary": "Very Very good and original ...",
+      "nickname": "Tipu",
+      "content": "Very Very good and original Product",
+      "pros": "Clear sound",
+      "cons": "",
+      "store_id": "1",
+      "product_id": "4477",
+      "status": "1",
+      "author_type": "2",
+      "customer_id": "253280",
+      "email": "",
+      "is_verified_buyer": "",
+      "votes_positive": "1",
+      "votes_negative": "0",
+      "product_recommended": "2",
+      "are_agreements_confirmed": null,
+      "is_featured": null,
+      "comments_count": 0,
+      "new_comments_count": 0,
+      "product_name_url": "https://www.bdshop.com/original-boya-m1-in-bd",
+      "product_name_label": "Original BOYA M1 Microphone for Smartphone, DSLR, Laptop, MacBook (Official Product with 6 Months Warranty)",
+      "attachments": [],
+      "created_at_in_iso_format": "2024-04-14",
+      "product_recommended_label": "I recommend<br /> this product",
+      "rating_title": "5 out of 5 stars",
+      "rating_absolute_value": 5,
+      "comments": []
+    },
+    {
+      "id": "2253",
+      "created_at": "Aug 1, 2022",
+      "rating": "100",
+      "summary": "I am really satisfied with ...",
+      "nickname": "Foyzul",
+      "content": "I am really satisfied with this product. They provided the original product.",
+      "pros": "",
+      "cons": "",
+      "store_id": "1",
+      "product_id": "4477",
+      "status": "1",
+      "author_type": "2",
+      "customer_id": "141895",
+      "email": "",
+      "is_verified_buyer": "Verified Buyer",
+      "votes_positive": "0",
+      "votes_negative": "0",
+      "product_recommended": "2",
+      "are_agreements_confirmed": null,
+      "is_featured": "0",
+      "shared_store_ids": [
+        "1"
+      ],
+      "comments_count": 0,
+      "new_comments_count": 0,
+      "product_name_url": "https://www.bdshop.com/original-boya-m1-in-bd",
+      "product_name_label": "Original BOYA M1 Microphone for Smartphone, DSLR, Laptop, MacBook (Official Product with 6 Months Warranty)",
+      "attachments": [],
+      "created_at_in_iso_format": "2022-08-01",
+      "product_recommended_label": "I recommend<br /> this product",
+      "rating_title": "5 out of 5 stars",
+      "rating_absolute_value": 5,
+      "comments": []
+    },
+    {
+      "id": "2225",
+      "created_at": "Jun 8, 2022",
+      "rating": "80",
+      "summary": "একদম অরিজিনাল প্রোডাক্ট দেওয়ার জন্য ধন্যবাদ জানাই বিডিশপ কে",
+      "nickname": "Farid",
+      "content": "প্রথমে ধন্যবাদ জানায় বিডিশপ.কম কে। একদম অরিজিনাল প্রোডাক্ট দেওয়ার জন্য। বিডিশপ খুব দ্রুত সময়ে ডেলিভারি দেয়। বিডিশপ রেসপন্সটা আমার কাছে খুব ভালো লেগেছে। আমি তাদের ফোনে এবং মেসেঞ্জারে নক করেছিলাম খুব ভালো রেসপন্স পেয়েছি। আমাদের এইভাবে সেবা দেওয়ার জন্য বিডিশপের সমস্ত কর্মচারী এবং কর্মকর্তাকে অসংখ্য ধন্যবাদ।",
+      "pros": "",
+      "cons": "",
+      "store_id": "1",
+      "product_id": "4477",
+      "status": "1",
+      "author_type": "2",
+      "customer_id": "158920",
+      "email": "",
+      "is_verified_buyer": "Verified Buyer",
+      "votes_positive": "6",
+      "votes_negative": "0",
+      "product_recommended": "2",
+      "are_agreements_confirmed": null,
+      "is_featured": "0",
+      "attachments": [
+        {
+          "name": "16546709688795803227338185020884.jpg",
+          "file_name": "16546709688795803227338185020884.jpg",
+          "id": "MTY1NDY3MDk2ODg3OTU4MDMyMjczMzgxODUwMjA4ODQuanBn",
+          "url": "https://www.bdshop.com/pub/media/aw_ar/media/16546709688795803227338185020884.jpg",
+          "type": "image/jpeg",
+          "size": 610805,
+          "image_title": "A real photo of Original BOYA M1 Microphone for Smartphone, DSLR, Laptop, MacBook (Official Product with 6 Months Warranty) by Farid (1)"
+        }
+      ],
+      "shared_store_ids": [
+        "1"
+      ],
+      "comments_count": 0,
+      "new_comments_count": 0,
+      "product_name_url": "https://www.bdshop.com/original-boya-m1-in-bd",
+      "product_name_label": "Original BOYA M1 Microphone for Smartphone, DSLR, Laptop, MacBook (Official Product with 6 Months Warranty)",
+      "created_at_in_iso_format": "2022-06-08",
+      "product_recommended_label": "I recommend<br /> this product",
+      "rating_title": "4 out of 5 stars",
+      "rating_absolute_value": 4,
+      "comments": []
+    }
+  ],
+  "users": [
+    {
+      "name": "Jewel",
+      "phone": "01960486334",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "permissions": {
+        "customer": {
+          "add": true,
+          "edit": true,
+          "delete": false
+        },
+        "product": {
+          "add": false,
+          "edit": false,
+          "delete": true
+        },
+        "support": {
+          "add": true,
+          "edit": false,
+          "delete": false
+        },
+        "notification": {
+          "view": true,
+          "delete": false
+        },
+        "others": {
+          "warranty": true,
+          "transaction": false,
+          "wishList": false,
+          "tracking": false
+        }
+      },
+      "status": false,
+      "id": "3f49"
+    },
+    {
+      "id": "86a5",
+      "name": "Iqram Ahmed",
+      "phone": "01786945667",
+      "password": "1234567",
+      "confirmPassword": "1234567",
+      "permissions": {
+        "customer": {
+          "add": false,
+          "edit": false,
+          "delete": false
+        },
+        "product": {
+          "add": true,
+          "edit": false,
+          "delete": false
+        },
+        "support": {
+          "add": true,
+          "edit": false,
+          "delete": false
+        },
+        "notification": {
+          "view": false,
+          "delete": false
+        },
+        "others": {
+          "warranty": true,
+          "transaction": true,
+          "wishList": false,
+          "tracking": true
+        }
+      },
+      "status": true
+    },
+    {
+      "id": "86c5",
+      "name": "Rahat",
+      "phone": "01770486334",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "permissions": {
+        "customer": {
+          "add": true,
+          "edit": false,
+          "delete": false
+        },
+        "product": {
+          "add": false,
+          "edit": false,
+          "delete": true
+        },
+        "support": {
+          "add": true,
+          "edit": false,
+          "delete": false
+        },
+        "notification": {
+          "view": true,
+          "delete": false
+        },
+        "others": {
+          "warranty": false,
+          "transaction": false,
+          "wishList": true,
+          "tracking": false
+        }
+      },
+      "status": false
+    }
+  ],
+  "userLogs": [
+    {
+      "date": "Jan 6, 2024",
+      "logIn": "12:23 AM",
+      "logOut": "12:23 AM",
+      "ipAddress": "192.168.1.1",
+      "location": {
+        "latitude": "23.822350",
+        "longitude": "90.365417"
+      },
+      "browser": "Mozilla/5.0 (Windows NT 10.0)"
+    },
+    {
+      "date": "Jan 6, 2025",
+      "logIn": "12:23 AM",
+      "logOut": "12:23 AM",
+      "ipAddress": "192.168.1.1",
+      "location": {
+        "latitude": "23.797911",
+        "longitude": "90.414391"
+      },
+      "browser": "iPhone OS 18_3_1"
+    },
+    {
+      "date": "Jan 16, 2024",
+      "logIn": "08:23 PM",
+      "logOut": "12:23 AM",
+      "ipAddress": "192.168.1.1",
+      "location": {
+        "latitude": "23.746466",
+        "longitude": "90.376015"
+      },
+      "browser": "Mozilla/5.0 (Windows NT 10.0)"
+    },
+    {
+      "date": "Jan 8, 2024",
+      "logIn": "12:47 AM",
+      "logOut": "7:23 AM",
+      "ipAddress": "192.168.1.1",
+      "location": {
+        "latitude": "45.780394",
+        "longitude": "1.333978"
+      },
+      "browser": "iPhone OS 17_5_1 like Mac OS X"
     }
   ]
-  
 }

@@ -125,7 +125,7 @@ export default {
       }
     },
 
-    // Check if the phone number is unique
+    // Check phone number
     async UniquePhoneNo(phoneNumber) {
       try {
         const response = await this.$axios.get("http://localhost:3000/customers");
@@ -155,23 +155,21 @@ export default {
           note: this.formData.note,
         };
 
-        // Check if the phone number is unique
+        // if the phone number is unique
         const isUnique = await this.UniquePhoneNo(this.formData.phone);
       
         if (this.isEdit) {
-          // Update existing customer
           await this.$axios.put(`http://localhost:3000/customers/${customerId}`, payload);
         } else {
-          // Create new customer
+          // Create  customer
           if (!isUnique) {
-          this.phoneNoExist = true; // Show error message
+          this.phoneNoExist = true;
           return; // Stop form submission if the phone number is not unique
         }
           await this.$axios.post("http://localhost:3000/customers", payload);
-          this.formData = { ...this.$options.data().formData }; // Reset form data only in create mode
+          this.formData = { ...this.$options.data().formData }; // Reset form data
         }
 
-        // Redirect to customer list
         this.$router.push({ name: "customers" });
       } catch (error) {
         console.error("Error on submitting:", error);
@@ -183,5 +181,4 @@ export default {
 </script>
 
 <style scoped>
-/* Add your styles here */
 </style>

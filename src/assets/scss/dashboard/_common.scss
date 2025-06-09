@@ -37,7 +37,6 @@
     width: 100%;
     max-width: 1200px;
     margin: 0px auto;
-    
   }
 }
 .nav {
@@ -145,17 +144,28 @@
     img {
       height: 36px;
     }
-    h3 {
+    &-lavel {
       margin-top: 1rem;
-      font-size: 1.125rem;
-      line-height: 1.5rem;
-      font-weight: 600;
-      color: $black;
-      margin-bottom: 0;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      h3 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 600;
+        color: $black;
+        margin-bottom: 0;
+      }
+      .el-tag {
+        border-radius: 30px;
+      }
     }
+
     h4 {
       font-weight: normal;
       color: $gray;
+      font-size: 0.9rem;
       margin-bottom: 0;
       strong {
         color: $black;
@@ -225,7 +235,7 @@
   margin-bottom: 8px;
 }
 .el-collapse .el-collapse-item__header {
-  border: none!important;
+  border: none !important;
   border-bottom: none !important;
   font-size: 1rem;
   height: auto;

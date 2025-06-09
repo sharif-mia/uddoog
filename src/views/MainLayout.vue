@@ -58,7 +58,6 @@
     </nav>
   </header>
   <router-view></router-view>
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__columns">
