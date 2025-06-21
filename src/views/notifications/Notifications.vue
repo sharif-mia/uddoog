@@ -9,6 +9,8 @@
         All <span>{{ notifications.length }}</span>
       </button>
       <button @click="setTab('promotion')" :class="{ active: currentTab === 'promotion' }">Promotion</button>
+      <button @click="setTab('order')" :class="{ active: currentTab === 'order' }">Order</button>
+      <button @click="setTab('products')" :class="{ active: currentTab === 'products' }">Products</button>
     </div>
     <div v-for="notification in filteredNotifications" :key="notification.id" class="notification">
       <span class="notification__icon">{{notification.title.charAt(0)}}</span>
@@ -52,14 +54,14 @@ export default {
           title: "Auto Cash Disbursement Complete",
           message: "Your weekly earnings of [Amount] have been transferred to your account.",
           timeAgo: "15h",
-          type: "general",
+          type: "products",
         },
         {
           id: 3,
           title: "New Order Received!",
           message: "You have a new order for [Product Name]. Click here to view details and fulfill.",
           timeAgo: "15h",
-          type: "general",
+          type: "order",
         },
         {
           id: 4,
@@ -73,7 +75,12 @@ export default {
   },
   computed: {
     filteredNotifications() {
-      return this.currentTab === "all" ? this.notifications : this.notifications.filter((notification) => notification.type === "promotion");
+       if (this.currentTab === 'all') {
+    return this.notifications;
+  }
+      return this.notifications.filter(
+    (notification) => notification.type === this.currentTab
+  );
     },
   },
   methods: {

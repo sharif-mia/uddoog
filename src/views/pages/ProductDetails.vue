@@ -53,12 +53,12 @@
               <div class="row">
                 <div class="col-4">
                   <p class="product-details__our-price">
-                    Our Price <strong><i class="icon-taka"></i> {{ formatPrice(product.ownerPrice) }}</strong>
+                    DropShop Price <strong><i class="icon-taka"></i> {{ formatPrice(product.ownerPrice) }}</strong>
                   </p>
                 </div>
                 <div class="col-4">
                   <p class="product-details__sale-price">
-                    You Sale <strong><i class="icon-taka"></i> {{ formatPrice(product.sellerPrice) }} </strong>
+                    Selling Price <strong><i class="icon-taka"></i> {{ formatPrice(product.sellerPrice) }} </strong>
                   </p>
                 </div>
                 <div class="col-4">
@@ -72,7 +72,7 @@
               </p>
             </div>
             <div class="product-details__pricing product-details__profit">
-              You make: <strong><i class="icon-taka"></i> 150 </strong>
+              Your Profit <strong><i class="icon-taka"></i> 150 </strong>
             </div>
 
             <div class="my-3">
@@ -144,7 +144,7 @@
             <el-tab-pane name="second">
               <template #label>
                 <span class="custom-tabs-label">
-                  <span>Reviews ({{ reviews.length }})</span>
+                  <span>Reviews</span>
                 </span>
               </template>
               <div class="review">
@@ -164,27 +164,13 @@
                 </div>
               </div>
             </el-tab-pane>
-            <el-tab-pane label="Gallery" name="gallery">
+            <el-tab-pane name="third">
               <template #label>
                 <span class="custom-tabs-label">
-                  <span>Gallery</span>
+                  <span>Product Questions</span>
                 </span>
               </template>
-
-              <button class="btn" type="button" @click="openGallery">Open Gallery</button>
-
-              <light-gallery ref="galleryRef" 
-  v-show="activeName === 'gallery'" 
-  :speed="500" 
-  :plugins="[lgThumbnail, lgZoom]">
-                <a v-for="(img, i) in product.images" :key="i" :href="img" class="gallery-img" :ref="i === 0 ? 'firstImage' : null">
-                  <img :src="img" :alt="product.name" class="mb-3" />
-                </a>
-              </light-gallery>
-            </el-tab-pane>
-          </el-tabs>
-        </div>
-        <div class="qa">
+               <div class="qa">
           <div class="qa__header">
             <h3 class="qa__title">Buyer Questions & Answers ({{ questions.length }})</h3>
             <button class="btn" @click="toggleAskInput">Ask question</button>
@@ -218,6 +204,23 @@
             </div>
           </div>
         </div>
+            </el-tab-pane>
+            <el-tab-pane label="Gallery" name="gallery">
+              <template #label>
+                <span class="custom-tabs-label">
+                  <span>Content Gallery</span>
+                </span>
+              </template>
+
+              <button class="btn mr-3" @click="openGallery">Open Gallery</button>
+  <button class="btn" @click="downloadAll">
+    <i class="icon-download mr-2"></i> Download All
+  </button>
+             
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+       
       </div>
       <div class="col-3 sticky">
         <div class="customer-info">
@@ -287,27 +290,18 @@
 
 <script>
 import Product from "@/components/product.vue";
-import "lightgallery/css/lg-thumbnail.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lightgallery.css";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgZoom from "lightgallery/plugins/zoom";
-import LightGallery from "lightgallery/vue";
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 export default {
   name: "ProductDetails",
   components: {
     Product,
-    LightGallery,
-    lgThumbnail,
-    lgZoom,
   },
   data() {
     return {
       activeName: "first",
       reviews: [],
       products: [],
-      lgThumbnail,
-      lgZoom,
       loadingProducts: false,
       loadingReviews: false,
       selectedColor: null,
@@ -347,6 +341,27 @@ export default {
           date: null,
         },
       ],
+      media: [
+      {
+        src: 'https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4.jpg',
+        type: 'image',
+        name: 'huawei_matepad_10.4.jpg',
+      },
+      {
+        src: 'https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4_1.jpg',
+        type: 'image',
+        name: 'huawei_matepad_10.4_1.jpg',
+      },
+      {
+        src: 'https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/u/huawei_matepad_10.4_2.jpg',
+        type: 'image',
+        name: 'huawei_matepad_10.4_2.jpg',
+      },
+      {
+        src: 'https://videos.pexels.com/video-files/4201543/4201543-hd_1920_1080_30fps.mp4',
+        type: 'video',
+      }
+    ],
     };
   },
   created() {
@@ -368,13 +383,57 @@ export default {
     this.fetchReviews();
   },
   methods: {
-   openGallery() {
-    if (this.$refs.galleryRef) {
-      this.$refs.galleryRef.openGallery(0); // Opens gallery at first image
-    } else {
-      console.warn("LightGallery not initialized");
-    }
-  },
+  openGallery() {
+      Fancybox.show(
+        this.media.map((item) => ({
+          src: item.src,
+          type: item.type,
+          customClass: 'custom-fancybox-slide',
+        })),
+        {
+          Thumbs: {
+            type: 'classic', // Enable thumbnails
+          },
+          Toolbar: {
+            display: [
+              'thumbs',
+              'zoom',
+              'slideshow',
+              'fullscreen',
+              'download', // Built-in Fancybox download button (for images only)
+              'close',
+              {
+                id: 'custom-download',
+                html: '<i title="Download">Download</i>',
+                click: (fancybox) => this.downloadCurrent(fancybox),
+              },
+            ],
+          },
+        }
+      )
+    },
+
+    downloadCurrent(fancybox) {
+      const slide = fancybox.getSlide()
+      if (slide.type !== 'image') {
+        alert('Only images can be downloaded.')
+        return
+      }
+      const a = document.createElement('a')
+      a.href = slide.src
+      a.download = slide.src.split('/').pop() || 'image.jpg'
+      a.click()
+    },
+
+    downloadAll() {
+      const images = this.media.filter((item) => item.type === 'image')
+      images.forEach((img, i) => {
+        const a = document.createElement('a')
+        a.href = img.src
+        a.download = img.name || `image-${i + 1}.jpg`
+        a.click()
+      })
+    },
     nextImage() {
       this.activeIndex = (this.activeIndex + 1) % this.product.images.length;
     },

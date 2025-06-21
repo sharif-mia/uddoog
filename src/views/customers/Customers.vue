@@ -27,8 +27,9 @@
               <th>Phone</th>
               <th>Customer</th>
               <th>District</th>
-              <th>Order</th>
-              <th>Amount</th>
+              <th>Total Order</th>
+              <th>Total Amount</th>
+              <th>Total Profit</th>
               <th class="text-right">Action</th>
             </tr>
           </thead>
@@ -45,6 +46,7 @@
               <td>{{ customer.district }}</td>
               <td>01</td>
               <td>2700tk</td>
+              <td>500tk</td>
               <td class="text-right">
                 <router-link class="btn-edit text-info" :to="{ name: 'addProducts', params: { id: customer.id } }">
                   <i class="icon-cart"></i>

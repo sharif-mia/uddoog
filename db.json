@@ -681,7 +681,7 @@
       "comments": []
     }
   ],
-  "users": [
+  "moderators": [
     {
       "name": "Jewel",
       "phone": "01960486334",
@@ -718,7 +718,6 @@
       "id": "3f49"
     },
     {
-      "id": "86a5",
       "name": "Iqram Ahmed",
       "phone": "01786945667",
       "password": "1234567",
@@ -750,7 +749,8 @@
           "tracking": true
         }
       },
-      "status": true
+      "status": false,
+      "id": "86a5"
     },
     {
       "id": "86c5",
@@ -785,10 +785,10 @@
           "tracking": false
         }
       },
-      "status": false
+      "status": true
     }
   ],
-  "userLogs": [
+  "moderatorLogs": [
     {
       "date": "Jan 6, 2024",
       "logIn": "12:23 AM",

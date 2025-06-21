@@ -6,6 +6,9 @@ import Dashboard from "@/views/dashboard/Dashboard.vue";
 import DashboardLayout from "@/views/DashboardLayout.vue";
 import Invoice from "@/views/invoice/Invoice.vue";
 import MainLayout from "@/views/MainLayout.vue";
+import ModeratorForm from "@/views/moderators/ModeratorForm.vue";
+import ModeratorLog from "@/views/moderators/ModeratorLog.vue";
+import Moderators from "@/views/moderators/Moderators.vue";
 import AddProducts from "@/views/myProducts/AddProduct.vue";
 import MyProducts from "@/views/myProducts/MyProducts.vue";
 import Notifications from "@/views/notifications/Notifications.vue";
@@ -28,9 +31,6 @@ import TicketForm from "@/views/tickets/TicketForm.vue";
 import Tickets from "@/views/tickets/Tickets.vue";
 import showTicket from "@/views/tickets/TicketsShow.vue";
 import Transaction from "@/views/transaction/Transaction.vue";
-import UserForm from "@/views/users/UserForm.vue";
-import UserLog from "@/views/users/UserLog.vue";
-import Users from "@/views/users/Users.vue";
 import WishList from "@/views/wishlist/WishList.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -106,24 +106,24 @@ const routes = [
         component: CustomerForm,
       },
       {
-        path: "users",
-        name: "users",
-        component: Users,
+        path: "moderators",
+        name: "moderators",
+        component: Moderators,
       },
       {
-        path: "users/add",
-        name: "addUser",
-        component: UserForm,
+        path: "moderators/add",
+        name: "addModerator",
+        component: ModeratorForm,
       },
       {
-        path: "users/edit/:id",
-        name: "editUser",
-        component: UserForm,
+        path: "moderators/edit/:id",
+        name: "editModerator",
+        component: ModeratorForm,
       },
       {
-        path: "users/log/:id",
-        name: "logUser",
-        component: UserLog,
+        path: "moderators/log/:id",
+        name: "logModerator",
+        component: ModeratorLog,
       },
       {
         path: "categories",

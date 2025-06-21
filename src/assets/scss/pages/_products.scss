@@ -59,7 +59,7 @@ $border-color: #e0e0e0;
       font-weight: 500;
       &:not(:last-child) {
         &::after {
-          content: "\e91c";
+          content: "\e90c";
           font-family: "uddoog" !important;
           display: inline-flex;
           line-height: 0;
@@ -519,8 +519,7 @@ $border-color: #e0e0e0;
 }
 
 .qa {
-  border-top: 2px solid #e4e7ed;
-  padding-top: 1.5rem;
+  padding-top: .5rem;
   &__header {
     display: flex;
     justify-content: space-between;

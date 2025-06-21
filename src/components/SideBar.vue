@@ -11,7 +11,10 @@
         <el-tag type="primary">Diamond</el-tag>
       </div>
       <h4>
-        Balance <strong> <i class="icon-taka"></i> 20000.00 </strong>
+        Balance <strong>: <i class="icon-taka"></i> 20000.00 </strong>
+      </h4>
+      <h4 class="mt-1">
+        Points <strong>: <i class="icon-medal"></i> 20000 </strong>
       </h4>
     </div>
 
@@ -30,12 +33,12 @@
       </el-menu-item>
 
       <el-menu-item index="4">
-        <router-link :to="{ name: 'orders' }"><i class="icon-shopping-cart"></i> <span>My Order</span> </router-link>
+        <router-link :to="{ name: 'orders' }"><i class="icon-shopping-cart"></i> <span>My Orders</span> </router-link>
       </el-menu-item>
       <el-menu-item index="5">
         <router-link :to="{ name: 'customers' }">
           <i class="icon-users"></i>
-          <span>My Customer</span>
+          <span>My Customers</span>
         </router-link>
       </el-menu-item>
       <!-- <el-menu-item index="5">
@@ -57,7 +60,7 @@
         <router-link :to="{ name: 'withdraw' }"> <i class="icon-card"></i> <span>Withdraw Money</span></router-link>
       </el-menu-item>
       <el-menu-item index="10">
-        <router-link :to="{ name: 'users' }"><i class="icon-user"></i> <span>Manage Users</span> </router-link>
+        <router-link :to="{ name: 'moderators' }"><i class="icon-user"></i> <span>Manage Moderators</span> </router-link>
       </el-menu-item>
       <el-menu-item index="11">
         <router-link :to="{ name: 'notifications' }"> <i class="icon-bell"></i> <span>Notification</span> <span class="ml-auto">(5)</span></router-link>

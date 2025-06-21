@@ -6,16 +6,17 @@
       <template #title="">
         <h4>Order For <strong>Kazi Zaman</strong></h4>
       </template>
-      <div class="card p-0 col-gap">
+      <div class="card p-0 mt-3 col-gap">
         <div class="table-responsive-md">
           <table class="table">
             <thead>
               <tr>
                 <th>Item</th>
-                <th class="text-center">Our Price</th>
-                <th class="text-center">Your Price</th>
+                <th class="text-center">DropShop Price</th>
+                <th class="text-center">Selling Price</th>
                 <th class="text-center">Quantity</th>
                 <th class="text-center">Total Price</th>
+                <th class="text-center">Profit</th>
                 <th class="text-right">Action</th>
               </tr>
             </thead>
@@ -31,6 +32,7 @@
                 <td class="text-center"><i class="icon-taka mr-1"></i>190</td>
                 <td class="text-center">1</td>
                 <td class="text-center"><i class="icon-taka mr-1"></i>310</td>
+                <td class="text-center"><i class="icon-taka mr-1"></i>500</td>
                 <td class="text-right">
                   <a class="text-danger"><i class="icon-trash"></i></a>
                 </td>
@@ -46,6 +48,7 @@
                 <td class="text-center"><i class="icon-taka mr-1"></i>2790</td>
                 <td class="text-center">1</td>
                 <td class="text-center"><i class="icon-taka mr-1"></i>5310</td>
+                <td class="text-center"><i class="icon-taka mr-1"></i>500</td>
                 <td class="text-right">
                   <a class="text-danger"><i class="icon-trash"></i></a>
                 </td>
@@ -98,6 +101,7 @@
                 <h4><i class="icon-taka mr-1"></i>380</h4>
               </li>
             </ul>
+            <div class="order-summary__profit">Your Total Profit <div class="ml-auto"><i class="icon-taka mr-1"></i>70</div></div>
             <div class="order-summary__actions">
               <button type="button" @click="walletBalance = true" class="btn mb-3"><i class="icon-wallet mr-1"></i>Buy from wallet (120 Tk available)</button>
               <button type="button" @click="paymentLink = true" class="btn btn-outline"><i class="icon-link mr-1"></i>Generate Payment link for 70 TK</button>
@@ -106,20 +110,21 @@
         </div>
       </div>
     </el-collapse-item>
-    <el-collapse-item class="mt-3" name="2">
+    <el-collapse-item name="2">
       <template #title="">
         <h4>Order For <strong>Hasan Mahmud</strong></h4>
       </template>
-      <div class="card p-0 col-gap">
+      <div class="card p-0 mt-3 col-gap">
         <div class="table-responsive-md">
           <table class="table">
             <thead>
               <tr>
                 <th>Item</th>
-                <th class="text-center">Our Price</th>
-                <th class="text-center">Your Price</th>
+                <th class="text-center">DropShop Price</th>
+                <th class="text-center">Selling Price</th>
                 <th class="text-center">Quantity</th>
                 <th class="text-center">Total Price</th>
+                <th class="text-center">Profit</th>
                 <th class="text-right">Action</th>
               </tr>
             </thead>
@@ -135,6 +140,7 @@
                 <td class="text-center"><i class="icon-taka mr-1"></i>190</td>
                 <td class="text-center">1</td>
                 <td class="text-center"><i class="icon-taka mr-1"></i>310</td>
+                <td class="text-center"><i class="icon-taka mr-1"></i>500</td>
                 <td class="text-right">
                   <a class="text-danger"><i class="icon-trash"></i></a>
                 </td>
@@ -150,6 +156,7 @@
                 <td class="text-center"><i class="icon-taka mr-1"></i>2790</td>
                 <td class="text-center">1</td>
                 <td class="text-center"><i class="icon-taka mr-1"></i>5310</td>
+                <td class="text-center"><i class="icon-taka mr-1"></i>500</td>
                 <td class="text-right">
                   <a class="text-danger"><i class="icon-trash"></i></a>
                 </td>
@@ -202,6 +209,8 @@
                 <h4><i class="icon-taka mr-1"></i>380</h4>
               </li>
             </ul>
+            
+            <div class="order-summary__profit">Your Total Profit <div class="ml-auto"><i class="icon-taka mr-1"></i>80</div></div>
             <div class="order-summary__actions">
               <button type="button" @click="walletBalance = true" class="btn mb-3"><i class="icon-wallet mr-1"></i>Buy from wallet (120 Tk available)</button>
               <button type="button" @click="paymentLink = true" class="btn btn-outline"><i class="icon-link mr-1"></i>Generate Payment link for 70 TK</button>

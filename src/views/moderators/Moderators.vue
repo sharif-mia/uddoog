@@ -1,24 +1,24 @@
 <template>
   <div>
     <h2 class="page__title d-flex">
-      Users
+      Moderators
       <div class="d-flex ml-auto gap-3">
         <a class="btn btn-outline">
           <i class="icon-filter"></i>
           <span>Filter</span>
         </a>
-        <router-link class="btn" :to="{ name: 'addUser' }">
+        <router-link class="btn" :to="{ name: 'addModerator' }">
           <i class="icon-plus"></i>
           <span>New</span>
         </router-link>
       </div>
     </h2>
     <div class="card">
-      <div v-if="users.length != 0" class="table-responsive-md">
+      <div v-if="moderators.length != 0" class="table-responsive-md">
         <table class="table">
           <thead>
             <tr>
-              <th>User</th>
+              <th>Moderator</th>
               <th>Permission</th>
               <th class="text-center">Total Order</th>
               <th>Status</th>
@@ -27,18 +27,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="user in users" :key="user.id">
+            <tr v-for="moderator in moderators" :key="moderator.id">
               <td>
                 <h4 class="user-info">
-                  {{ user.name }} <span class="d-block">{{ user.phone }}</span>
+                  {{ moderator.name }} <span class="d-block">{{ moderator.phone }}</span>
                 </h4>
               </td>
               <td>
                 <div class="permissions">
                   <el-tag
-                  v-for="(tag, index) in permissionTags(user)" 
+                  v-for="(tag, index) in permissionTags(moderator)" 
                   :key="index"
-                  type="primary"
+                  type="info"
                 >
                   {{ tag }}
                 </el-tag>
@@ -46,25 +46,25 @@
               </td>
               <td class="text-center">01</td>
               <td>
-                <span class="badge" :class="user.status ? 'bg-success' : 'bg-danger'">
-                  {{ user.status ? "Active" : "Inactive" }}
+                <span class="badge" :class="moderator.status ? 'bg-success' : 'bg-danger'">
+                  {{ moderator.status ? "Active" : "Inactive" }}
                 </span>
               </td>
               <td>Jan 6, 2024,<br> 12:23 PM</td>
               <td class="text-right">
-                <router-link class="btn btn-outline user-log" :to="{ name: 'logUser', params: { id: user.id } }">
+                <router-link class="btn btn-outline user-log" :to="{ name: 'logModerator', params: { id: moderator.id } }">
                   <i class="icon-user"></i> Log
                 </router-link>
-                <router-link class="btn-edit" :to="{ name: 'editUser', params: { id: user.id } }">
+                <router-link class="btn-edit" :to="{ name: 'editModerator', params: { id: moderator.id } }">
                   <i class="icon-edit"></i>
                 </router-link>
-                <a class="text-danger" @click.prevent="deleteItem(user.id)"><i class="icon-trash"></i></a>
+                <a class="text-danger" @click.prevent="deleteItem(moderator.id)"><i class="icon-trash"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div v-else><h3>There is no users</h3></div>
+      <div v-else><h3>There is no moderators</h3></div>
     </div>
     <div class="d-flex align-center justify-between mt-3">
       <button class="btn btn-outline">Previous</button>
@@ -76,20 +76,20 @@
 
 <script>
 export default {
-  name: "userList",
+  name: "moderatorList",
   data() {
     return {
-      users: [],
+      moderators: [],
     };
   },
   mounted() {
-    this.getUsers();
+    this.getmoderators();
   },
   methods: {
-    permissionTags(user) {
-      if (!user?.permissions) return [];
+    permissionTags(moderator) {
+      if (!moderator?.permissions) return [];
 
-      const { customer, product, support, tracking, notification, others } = user.permissions;
+      const { customer, product, support, tracking, notification, others } = moderator.permissions;
       return [
         customer?.add && "Add Customer",
         customer?.edit && "Edit Customer",
@@ -109,23 +109,23 @@ export default {
       ].filter(Boolean);
     },
 
-    async getUsers() {
+    async getmoderators() {
       try {
-        const response = await this.$axios.get("http://localhost:3000/users");
-        this.users = response.data;
-        console.log(this.users);
+        const response = await this.$axios.get("http://localhost:3000/moderators");
+        this.moderators = response.data;
+        console.log(this.moderators);
       } catch (error) {
         console.log("error", error);
       }
     },
 
-    async deleteItem(userId) {
+    async deleteItem(moderatorId) {
       try {
-        await this.$axios.delete(`http://localhost:3000/users/${userId}`);
-        this.users = this.users.filter((user) => user.id !== userId);
+        await this.$axios.delete(`http://localhost:3000/moderators/${moderatorId}`);
+        this.moderators = this.moderators.filter((moderator) => moderator.id !== moderatorId);
         console.log("success");
       } catch (error) {
-        console.error("Error deleting user:", error.response ? error.response.data : error.message);
+        console.error("Error deleting moderator:", error.response ? error.response.data : error.message);
       }
     },
   },
@@ -143,5 +143,8 @@ export default {
 .user-log{
      padding: 0.25rem .5rem;
      font-size: .9rem!important;
+}
+.el-tag.el-tag--info {
+    color: #4b5563;
 }
 </style>

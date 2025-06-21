@@ -48,10 +48,10 @@
               <span class="badge bg-danger" v-else-if="warranty.status === 'Expired'">{{ warranty.status }}</span>
             </td>
             <td class="text-right">
-              <router-link v-if="warranty.status === 'Expired' || warranty.status === 'Soon'" class="btn-edit" :to="{ name: 'orders' }">
+              <router-link v-if="warranty.status === 'Expired' || warranty.status === 'Soon' || warranty.status === 'Valid'" class="btn-edit" :to="{ name: 'orders' }">
                 <i class="icon-eye"></i>
               </router-link>
-              <a v-if="warranty.status === 'Valid'" class="text-danger" @click.prevent="deleteItem(warranty.invoice)"><i class="icon-trash"></i></a>
+              <a class="text-danger" @click.prevent="deleteItem(warranty.invoice)"><i class="icon-trash"></i></a>
             </td>
           </tr>
         </tbody>

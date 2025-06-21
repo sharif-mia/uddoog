@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-8">
         <h3>Select Payment Type</h3>
-        <div class="notification__tab d-flex">
+        <div class="withdraw__tab d-flex">
           <button class="mr-3" @click.prevent="setTab('bKash')" :class="{ active: currentTab === 'bKash' }"><img src="@/assets/images/bkash.svg" alt="" /> Bkash</button>
           <button @click.prevent="setTab('bank')" :class="{ active: currentTab === 'bank' }"><img height="24" src="@/assets/images/bank.svg" alt="" /> Bank Transfer</button>
         </div>
@@ -86,6 +86,7 @@
               <th>Amount</th>
               <th>Transfer To</th>
               <th>Status</th>
+              <th>TRXN</th>
               <th class="text-right">Action</th>
             </tr>
           </thead>
@@ -100,11 +101,13 @@
               <td>{{ formatDate(new Date(payment.date)) }}</td>
               <td>{{ payment.amount }}</td>
               <td>{{ payment.transferTo }}</td>
+              
               <td>
                 <span class="badge bg-success" v-if="payment.status === 'Successful'">{{ payment.status }}</span>
                 <span class="badge bg-warning" v-else-if="payment.status === 'Pending'">{{ payment.status }}</span>
                 <span class="badge bg-danger" v-else>{{ payment.status }}</span>
               </td>
+              <td>TX - 114909165</td>
               <td class="text-right">
                 <a class="btn-view"><i class="icon-eye"></i></a>
                 <a class="btn-delete" @click.prevent="deleteItem(payment.id)"><i class="icon-trash"></i></a>

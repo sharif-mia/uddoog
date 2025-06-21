@@ -1,4 +1,27 @@
 <template>
+  <div class="dashboard__cards">
+        <div class="dashboard__card">
+          <h3 class="text-success"><i class="icon-taka mr-2"></i> 17000</h3>
+          <p>Total Sales - Lifetime</p>
+        </div>
+        <div class="dashboard__card">
+          <h3 class="text-primary"><i class="icon-hastag mr-2"></i>30</h3>
+          <p>Total Orders</p>
+        </div>
+        <div class="dashboard__card">
+          <h3 class="text-danger"><i class="icon-taka mr-2"></i>2323</h3>
+          <p>Pending Profit</p>
+        </div>
+        <div class="dashboard__card">
+          <h3 class="text-warning"><i class="icon-taka mr-2"></i>5000</h3>
+          <p>Lifetime Earning</p>
+        </div>
+        <div class="dashboard__card">
+          <h3 class="text-success"><i class="icon-taka mr-2"></i>3000</h3>
+          <p>Profit(30 Days)</p>
+        </div>
+      </div>
+      
   <div class="row equal-column">
     <div class="col-8 col-gap">
       <div class="pending__payment">
@@ -56,27 +79,7 @@
     </router-link>
   </div>
   <div class="row">
-    <div class="col-5">
-      <div class="dashboard__cards">
-        <div class="dashboard__card">
-          <h3 class="text-success"><i class="icon-taka mr-2"></i> 17000</h3>
-          <p>Total Sales - Lifetime</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-primary"><i class="icon-hastag mr-2"></i>30</h3>
-          <p>Total Orders</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-danger"><i class="icon-taka mr-2"></i>2323</h3>
-          <p>Pending Profit</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-warning"><i class="icon-taka mr-2"></i>5000</h3>
-          <p>Lifetime Earning</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
+    <div class="col-8">
       <a class="best-selling" href="#">
         <img src="https://www.bdshop.com/pub/media/catalog/product/cache/a762498fd6e92192d841c2d6c87195e8/r/e/remax_rm_-_805_wired_headset_music_over-ear_headphone_-_black.jpg" alt="" />
         <div class="content">
@@ -86,10 +89,11 @@
         </div>
       </a>
     </div>
-    <div class="col-3">
+    <div class="col-4">
       <div class="low-stock">
         <h4>Low Stock item</h4>
-        <div class="row">
+        
+        <div class="row text-center">
           <div class="col-6">
             <a href="#">
               <img src="https://www.bdshop.com/pub/media/catalog/product/cache/a762498fd6e92192d841c2d6c87195e8/p/a/panasonic-vacuum-cleaner-tank-type-mc-yl631_1_.png" alt="" />

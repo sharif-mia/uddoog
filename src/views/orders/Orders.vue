@@ -22,13 +22,6 @@
               </div>
             </div>
           </div>
-
-          <div class="order-card__progress-bar">
-            <div class="order-card__progress-step"></div>
-            <div class="order-card__progress-step"></div>
-            <div class="order-card__progress-step order-card__progress-step--active"></div>
-            <div class="order-card__progress-step order-card__progress-step--inactive"></div>
-          </div>
         </div>
       </div>
       <div class="col-4">
@@ -50,13 +43,6 @@
                 <div class="order-card__arrival-time">2 Days</div>
               </div>
             </div>
-          </div>
-
-          <div class="order-card__progress-bar">
-            <div class="order-card__progress-step"></div>
-            <div class="order-card__progress-step"></div>
-            <div class="order-card__progress-step order-card__progress-step--active"></div>
-            <div class="order-card__progress-step order-card__progress-step--inactive"></div>
           </div>
         </div>
       </div>
@@ -183,7 +169,10 @@
           <p>Nov 12, 2024 9:07 PM</p>
         </el-timeline-item>
       </el-timeline>
-      <div class="text-center"><router-link :to="{ name: 'addTicket' }" class="btn btn-outline">Support Ticket</router-link></div>
+      <div class="text-center">
+        <router-link :to="{ name: 'addTicket' }" class="btn btn-outline mr-3">Contact Support</router-link>
+      <a  class="btn " href="#" target="_blank">Track on Courier Page</a>
+      </div>
     </div>
   </div>
 </template>

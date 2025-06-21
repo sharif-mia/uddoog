@@ -1,10 +1,10 @@
 <template>
   <div>
     <h2 class="page__title gap-3 d-flex">
-        <router-link class="btn-back" :to="{ name: 'users' }">
+        <router-link class="btn-back" :to="{ name: 'moderators' }">
         <i class="icon-arrow-left"></i>
       </router-link>
-      Log Details for {{ user.name }}
+      Log Details for {{ moderator.name }}
       <div class="d-flex ml-auto gap-3">
         <a class="btn btn-outline">
           <i class="icon-filter"></i>
@@ -13,7 +13,7 @@
       </div>
     </h2>
     <div class="card">
-      <div v-if="userLogs.length != 0" class="table-responsive-md">
+      <div v-if="moderatorLogs.length != 0" class="table-responsive-md">
         <table class="table">
           <thead>
             <tr>
@@ -34,7 +34,7 @@
           </thead>
 
           <tbody>
-            <tr v-for="(user, index) in userLogs" :key="index">
+            <tr v-for="(moderator, index) in moderatorLogs" :key="index">
                 <td>
                   <label class="checkbox">
                     <input type="checkbox" v-model="selectRow" />
@@ -42,28 +42,28 @@
                   </label>
                 </td>
               <td>
-                {{ user.date }}
+                {{ moderator.date }}
               </td>
               <td>
-                {{ user.logIn }}
+                {{ moderator.logIn }}
               </td>
-              <td>{{ user.logOut }}</td>
+              <td>{{ moderator.logOut }}</td>
               <td>
-                {{ user.ipAddress }}
+                {{ moderator.ipAddress }}
               </td>
               <td>
-                <span v-if="user.area">{{ user.area }}</span>
+                <span v-if="moderator.area">{{ moderator.area }}</span>
                 <span v-else>Loading...</span>
               </td>
-              <td>{{ user.browser }}</td>
+              <td>{{ moderator.browser }}</td>
               <td class="text-right">
-                <a class="text-danger" @click.prevent="deleteItem(user.id)"><i class="icon-trash"></i></a>
+                <a class="text-danger" @click.prevent="deleteItem(moderator.id)"><i class="icon-trash"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div v-else><h3>There is no users</h3></div>
+      <div v-else><h3>There is no moderators</h3></div>
     </div>
     <div class="d-flex align-center justify-between mt-3">
       <button class="btn btn-outline">Previous</button>
@@ -75,30 +75,30 @@
 
 <script>
 export default {
-  name: "userList",
+  name: "moderatorList",
   data() {
     return {
-      user: {},
-      userLogs: [],
+      moderator: {},
+      moderatorLogs: [],
     };
   },
   mounted() {
-    this.getUsers();
-    this.getUserLogs();
+    this.getModerators();
+    this.getModeratorLogs();
   },
   methods: {
-    async getUsers() {
-      const userId = this.$route.params.id;
+    async getModerators() {
+      const moderatorId = this.$route.params.id;
       try {
-        const response = await this.$axios.get(`http://localhost:3000/users/${userId}`);
-        this.user = response.data;
+        const response = await this.$axios.get(`http://localhost:3000/moderators/${moderatorId}`);
+        this.moderator = response.data;
       } catch (error) {
         console.log("error", error);
       }
     },
-    async getUserLogs() {
+    async getModeratorLogs() {
       try {
-        const response = await this.$axios.get("http://localhost:3000/userLogs");
+        const response = await this.$axios.get("http://localhost:3000/moderatorLogs");
         const logs = response.data;
 
         for (const log of logs) {
@@ -106,7 +106,7 @@ export default {
           log.area = area;
         }
 
-        this.userLogs = logs;
+        this.moderatorLogs = logs;
       } catch (error) {
         console.log("error", error);
       }
@@ -123,20 +123,20 @@ export default {
       }
     },
 
-    async deleteItem(userId) {
+    async deleteItem(moderatorId) {
       try {
-        await this.$axios.delete(`http://localhost:3000/users/${userId}`);
-        this.users = this.users.filter((user) => user.id !== userId);
+        await this.$axios.delete(`http://localhost:3000/moderators/${moderatorId}`);
+        this.moderators = this.moderators.filter((moderator) => moderator.id !== moderatorId);
         console.log("success");
       } catch (error) {
-        console.error("Error deleting user:", error.response ? error.response.data : error.message);
+        console.error("Error deleting moderator:", error.response ? error.response.data : error.message);
       }
     },
   },
 };
 </script>
 <style scoped>
-.user-log {
+.moderator-log {
   padding: 0.25rem 0.5rem;
   font-size: 0.9rem !important;
 }

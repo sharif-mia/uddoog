@@ -2,7 +2,7 @@
   &__info {
     @extend %dashCard;
     background: linear-gradient(300deg, #0575e6, #021b79, #0575e6, #0575e6, #021b79);
-    background-size: 300% 300%;
+    background-size: 300% 600%;
     animation: gradient-animation 45s ease infinite;
     color: $white;
     position: relative;
@@ -51,10 +51,24 @@
   }
 }
 .payment__form {
-  .notification__tab button {
+  .withdraw__tab {
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     cursor: pointer;
+    button {
+      border-radius: 30px;
+      border: none;
+      background: #d3d6d8;
+      color: #1a1d1f;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &.active{
+        background: #3c97d3;
+        color: $white;
+      }
+    }
     img {
       height: 24px;
     }

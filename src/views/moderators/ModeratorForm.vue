@@ -1,10 +1,10 @@
 <template>
   <div>
     <h2 class="page__title gap-3 d-flex">
-      <router-link class="btn-back" :to="{ name: 'users' }">
+      <router-link class="btn-back" :to="{ name: 'moderators' }">
         <i class="icon-arrow-left"></i>
       </router-link>
-      {{ isEdit ? "Edit" : "Create" }} User
+      {{ isEdit ? "Edit" : "Create" }} Moderator
     </h2>
     <form @submit.prevent="submitForm">
       <div class="row">
@@ -147,7 +147,7 @@
 
 <script>
 export default {
-  name: "userForm",
+  name: "moderatorForm",
   data() {
     return {
       formData: {
@@ -177,7 +177,7 @@ export default {
   created() {
     this.isEdit = !!this.$route.params.id;
     if (this.isEdit) {
-      this.fetchUser();
+      this.fetchModerator();
     }
   },
   methods: {
@@ -188,19 +188,19 @@ export default {
       this.showConfPwd = !this.showConfPwd;
     },
 
-    async fetchUser() {
-      const userId = this.$route.params.id;
+    async fetchModerator() {
+      const moderatorId = this.$route.params.id;
       try {
-        const response = await this.$axios.get(`http://localhost:3000/users/${userId}`);
+        const response = await this.$axios.get(`http://localhost:3000/moderators/${moderatorId}`);
         this.formData = response.data;
       } catch (error) {
-        console.error("Error fetching user data:", error);
-        alert("Failed to fetch user data. Please try again.");
+        console.error("Error fetching moderator data:", error);
+        alert("Failed to fetch moderator data. Please try again.");
       }
     },
 
     async submitForm() {
-      const userId = this.$route.params.id;
+      const moderatorId = this.$route.params.id;
 
       try {
         const payload = {
@@ -213,14 +213,14 @@ export default {
         };
 
         if (this.isEdit) {
-          // Update user
-          await this.$axios.put(`http://localhost:3000/users/${userId}`, payload);
+          // Update moderator
+          await this.$axios.put(`http://localhost:3000/moderators/${moderatorId}`, payload);
         } else {
-          // New user
-          await this.$axios.post("http://localhost:3000/users", payload);
+          // New moderator
+          await this.$axios.post("http://localhost:3000/moderators", payload);
           this.formData = { ...this.$options.data().formData };
         }
-        this.$router.push({ name: "users" });
+        this.$router.push({ name: "moderators" });
       } catch (error) {
         console.error("Error on submitting:", error);
         alert("An error occurred. Please try again.");

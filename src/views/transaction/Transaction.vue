@@ -2,8 +2,12 @@
   <h1 class="page__title d-flex mt-0">Transaction History</h1>
 
   <div class="row">
-    <div class="col-7">
+    <div class="col-12">
       <form class="transaction__form">
+        <el-radio-group v-model="filterBy" aria-label="filterBy control">
+      <el-radio-button value="CashIn">Cash In</el-radio-button>
+      <el-radio-button value="CashOut">Cash Out</el-radio-button>
+    </el-radio-group>
     <el-radio-group v-model="filterBy" aria-label="filterBy control">
       <el-radio-button value="Weekly">Weekly</el-radio-button>
       <el-radio-button value="Monthly">Monthly</el-radio-button>
@@ -29,6 +33,7 @@
               <th>Amount</th>
               <th>Transfer To</th>
               <th>Status</th>
+              <th>TRXN</th>
               <th class="text-right">Action</th>
             </tr>
           </thead>
@@ -50,6 +55,7 @@
                 <span class="badge bg-warning" v-else-if="transaction.status === 'Pending'">{{ transaction.status }}</span>
                 <span class="badge bg-danger" v-else>{{ transaction.status }}</span>
               </td>
+              <td>TX - 114909165</td>
               <td class="text-right">
                 <a class="btn-delete" @click.prevent="deleteItem(transaction.id)"><i class="icon-trash"></i></a>
               </td>
