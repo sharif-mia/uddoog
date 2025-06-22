@@ -3764,7 +3764,7 @@ table {
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0px auto; }
 
 .nav {
@@ -4534,7 +4534,7 @@ table {
   overflow: hidden;
   width: fit-content; }
   .sort-filter__option {
-    padding: 0.5rem 0.75rem;
+    padding: 0.65rem 0.75rem;
     border: none;
     background: white;
     font-weight: 400;
