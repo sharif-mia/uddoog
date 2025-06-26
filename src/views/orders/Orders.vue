@@ -109,7 +109,7 @@
                 <i class="icon-edit"></i>
               </router-link>
               <a v-if="order.status === 'Successful' || order.status === 'Cancel'" class="text-danger" @click.prevent="deleteItem(order.invoice)"><i class="icon-trash"></i></a>
-              <button @click="trackOrders = true" class="btn" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i> Tracking</button>
+              <div @click="trackOrders = true" class="btn-edit" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i> </div>
             </td>
           </tr>
         </tbody>

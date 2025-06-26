@@ -19,7 +19,7 @@
             <span class="message__time">November 9, 2024, 10:35 AM</span>
           </div>
           <div class="message__content">
-            <p>Dear Mr. Kazi Zaman,</p>
+            <h4>Dear Mr. Kazi Zaman,</h4>
             <p>Thank you for contacting us about your recent order. We sincerely apologize that you received the wrong item. This is certainly not the experience we want our customers to have.</p>
             <p>We have checked your order details and confirmed that you had indeed ordered the "Blue Widget" (BW123). Rest assured, we will ship out the correct item to you immediately. You can expect to receive it within [standard shipping time frame].</p>
             <p>To return the "Red Widget" (RW456), please repackage it in the original shipping box. If you have any further questions, please don't hesitate to contact us.</p>
@@ -29,7 +29,7 @@
 
         <div class="message message--customer">
           <div class="message__meta">
-            <span class="message__author">Mr. Kazi Zaman</span>
+            <h4 class="message__author">Mr. Kazi Zaman</h4>
             <span class="message__time">November 9, 2024, 10:35 AM</span>
           </div>
           <div class="message__content">

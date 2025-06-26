@@ -7,12 +7,12 @@ $border-color: #e0e0e0;
 .product-list-page {
   display: flex;
   gap: 2rem;
-  padding: 1rem;
+  padding: 2rem 0 4rem;
 }
 
 // Category Sidebar
 .category-sidebar {
-  width: 250px;
+  width: 280px;
   padding: 1rem;
   background: $bg-light;
   border-radius: 8px;
@@ -21,8 +21,11 @@ $border-color: #e0e0e0;
   .subcategory-list,
   .sub-subcategory-list {
     list-style: none;
-    padding-left: 1rem;
-
+  
+  }
+  ul {
+    padding: 0;
+    margin: 0;
     li {
       margin: 0.5rem 0;
     }
@@ -31,17 +34,48 @@ $border-color: #e0e0e0;
       text-decoration: none;
       color: $text-color;
       font-weight: 500;
+      font-size: 0.85rem;
 
       &:hover {
         color: $pc;
       }
     }
   }
-}
 
+  
+}
+.product-filter-category,.product-filter h4{
+border-bottom: 1px solid #d4d4d4;
+    font-size: 1rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+.product-filter {
+
+  ul {
+    li:not(:last-child) {
+      margin-bottom: 1.25rem;
+    }
+  }
+  .checkbox {
+    font-size: 0.85rem;
+    i {
+      font-size: 0.75rem;
+      margin-right: 3px;
+    }
+  }
+}
 // Product Content
 .product-content {
   flex: 1;
+  &-filter {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.875rem;
+    background: $off-white;
+  }
 }
 
 // Breadcrumbs
@@ -486,7 +520,6 @@ $border-color: #e0e0e0;
     }
   }
 
-
   &__actions {
     display: flex;
     align-items: center;
@@ -519,7 +552,7 @@ $border-color: #e0e0e0;
 }
 
 .qa {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -589,6 +622,26 @@ $border-color: #e0e0e0;
     font-weight: 600;
     color: $black;
   }
+}
+
+.customer-alert {
+  top: 0;
+  background: #0d5691;
+  display: flex;
+  width: calc(100% - 340px);
+  padding: 1rem;
+  border-radius: 0.437rem;
+  color: #fff;
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  align-items: center;
+  position: fixed !important;
+  left: auto;
+  z-index: 99;
+}
+.customer-alert strong {
+  font-weight: 600;
 }
 // Responsive Design
 @media all and (min-width: 768px) {

@@ -168,7 +168,7 @@
     }
   }
   &-inner {
-    max-height: calc(100vh - 80px);
+    height:calc(100vh - 40px);
     overflow-y: auto;
     padding-right: 1rem;
   }
@@ -273,10 +273,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0f2350;
       border-radius: 50%;
-      font-size: 1.25rem;
-      color: #fff;
+      font-size: 1.5rem;
+      color: #0f2350;
     }
   }
 

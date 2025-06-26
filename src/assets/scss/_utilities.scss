@@ -96,7 +96,7 @@ img {
   margin-top: 20px !important;
 }
 .my-4 {
-  margin: 1.5rem 0!important;
+  margin: 1.5rem 0 !important;
 }
 .m-0 {
   margin: 0 !important;
@@ -175,7 +175,7 @@ img {
 .btn {
   border: 1px solid $pc;
   font-weight: 500;
-  padding: 0.6rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 0.475rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -218,6 +218,11 @@ img {
   &-full {
     width: 100%;
   }
+}
+button[type="submit"] {
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.475rem;
+  font-size: 0.875rem;
 }
 .btn-block {
   display: block;

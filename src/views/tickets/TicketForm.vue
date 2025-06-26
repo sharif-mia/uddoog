@@ -24,9 +24,15 @@
           <textarea name="" v-model="formData.description" placeholder="Description (optional)" class="form-control"></textarea>
         </div>
         <div class="form-group">
-          <input  type="file" @change="handleFileUpload" multiple />
-          <small>Allowed File Extensions: .jpg, .gif, .jpeg, .png (Max size: 10MB)</small>
-        </div>
+            <label class="upload">
+              <input class="upload-input" title="" type="file" @change="handleFileUpload" multiple />
+              <div class="text-center">
+                <img alt="" class="mx-auto" src="@/assets/images/upload.png" />
+                <h4 class="my-1">Your Attackment here</h4>
+                <p class="text-muted m-0">Support: .jpg, .gif, .jpeg, .png (Max size: 10MB)</p>
+              </div>
+            </label>
+          </div>
         <button type="submit" class="btn">Submit</button>
       </div>
     </div>
