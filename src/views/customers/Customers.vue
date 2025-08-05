@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="page__title d-flex">
+    <h2 class="page__title gap-xs d-flex">
       Customers
-      <div class="d-flex ml-auto gap-3">
+      <div class="d-flex ml-md-auto gap-3">
         <a class="btn btn-outline">
           <i class="icon-filter"></i>
           <span>Filter</span>
@@ -15,12 +15,44 @@
     </h2>
     <div class="card">
       <div v-if="customers.length != 0" class="table-responsive-md">
-        <table class="table">
+        <div class="xs-only">
+          <DataCard
+            v-for="customer in customers"
+            :key="customer.id"
+            :expanded="expandedCard === customer.id"
+            @toggle="expandedCard = expandedCard === customer.id ? null : customer.id"
+            :fields="{
+              Phone: customer.phone,
+              District: customer.district,
+              'Total Order': '01',
+              'Total Amount': '2700tk',
+              'Total Profit': '500tk',
+            }"
+          >
+            <template #title>
+              {{ customer.name }}
+            </template>
+
+            <template #actions>
+              <router-link :to="{ name: 'addProducts', params: { id: customer.id } }">
+                <i class="icon-cart text-info"></i> Order
+              </router-link>
+              <a><i class="icon-eye"></i> View</a>
+              <router-link :to="{ name: 'editCustomer', params: { id: customer.id } }">
+                <i class="icon-edit"></i> Edit
+              </router-link>
+              <a class="text-danger" @click.prevent="deleteItem(customer.id)">
+                <i class="icon-trash"></i> Remove
+              </a>
+            </template>
+          </DataCard>
+        </div>
+        <table class="table hide-xs">
           <thead>
             <tr>
               <th>
                 <label class="checkbox">
-                  <input type="checkbox" v-model="selectAll" />
+                  <input type="checkbox" v-model="selectAll" @change="toggleSelectAll(customers)" />
                   <span class="checkmark"></span>
                 </label>
               </th>
@@ -37,7 +69,7 @@
             <tr v-for="customer in customers" :key="customer.id">
               <td>
                 <label class="checkbox">
-                  <input type="checkbox" v-model="selectRow" />
+                  <input type="checkbox" v-model="selectedRows" :value="customer.id" @change="handleRowSelect(customers)" />
                   <span class="checkmark"></span>
                 </label>
               </td>
@@ -63,20 +95,26 @@
       </div>
       <div v-else><h3>There is no customers</h3></div>
     </div>
-    <div class="d-flex align-center justify-between mt-3">
+    <div class="pagination d-flex align-center justify-between mt-3">
       <button class="btn btn-outline">Previous</button>
-      <el-pagination layout="prev, pager, next" :total="1000" />
+      <el-pagination class="hide-xs" layout="prev, pager, next" :total="1000" />
       <button class="btn btn-outline">Next</button>
     </div>
   </div>
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
+import selectionMixin from "@/mixins/selectionMixin";
+
 export default {
   name: "CustomerList",
+  mixins: [selectionMixin],
+  components: { DataCard },
   data() {
     return {
       customers: [],
+      expandedCard: null,
     };
   },
   mounted() {
@@ -96,10 +134,9 @@ export default {
       try {
         await this.$axios.delete(`http://localhost:3000/customers/${customerId}`);
         this.customers = this.customers.filter((customer) => customer.id !== customerId);
-        console.log("success");
+        this.resetSelection();
       } catch (error) {
         console.error("Error deleting customer:", error.response ? error.response.data : error.message);
-
       }
     },
   },

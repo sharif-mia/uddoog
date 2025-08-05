@@ -6,6 +6,11 @@
 .ml-auto {
   margin-left: auto !important;
 }
+@media all and (min-width: 768px) {
+  .ml-md-auto {
+    margin-left: auto !important;
+  }
+}
 .mt-auto {
   margin-top: auto !important;
 }

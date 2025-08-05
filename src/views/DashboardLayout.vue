@@ -22,22 +22,33 @@
         </el-dropdown>
       </div>
     </nav>
-    <SideBar />
+    <SideBar :isSidebarVisible="showSidebar" @close-sidebar="showSidebar = false" />
     <section class="page__inner">
       <div class="page__container">
         <router-view></router-view>
       </div>
     </section>
+    <MobileFooter :showSidebar="showSidebar" @toggle-sidebar="toggleSidebar" @close-sidebar="showSidebar = false" />
+
   </div>
 </template>
 
 <script>
+import MobileFooter from "@/components/MobileFooter.vue";
 import SideBar from "@/components/SideBar.vue";
 export default {
+  data() {
+    return {
+      showSidebar: false, // initially hidden on mobile
+    };
+  },
   components: {
-    SideBar,
+    SideBar,MobileFooter
   },
   methods: {
+     toggleSidebar() {
+      this.showSidebar = !this.showSidebar;
+    },
     logout() {
       localStorage.removeItem("sellerToken");
       this.$router.push({ name: "login" });

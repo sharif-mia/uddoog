@@ -1,0 +1,224 @@
+@media all and (min-width: 768px) {
+  .mobile-nav-bar {
+    display: none;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .gap-xs {
+    gap: 1.25rem;
+  }
+  .nav__search {
+    width: auto;
+    position: relative;
+  }
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: linear-gradient(145deg, #f3f3f3 0%, #e8e7ff 25%, #ddeeff 50%, #e7f1fd 75%, #fef5f2 100%);
+    // backdrop-filter: blur(20px);
+    // -webkit-backdrop-filter: blur(20px);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 60px;
+  }
+  .nav__search .form-control {
+    display: none;
+  }
+  .nav {
+    padding: 1rem 20px;
+    background: none;
+    border: none;
+  }
+
+  .chat-container {
+    background: inherit;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .sidebar {
+    left: -100vw;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    &.show {
+      left: 0;
+    }
+  }
+
+  .page {
+    padding: 0 0 60px;
+  }
+  .page__inner {
+    min-height: auto;
+    padding: 20px;
+    background: none;
+  }
+  .card {
+    border-radius: 0;
+    border: none;
+  }
+  .best-selling,
+  .dashboard__cta {
+    margin-bottom: 20px;
+  }
+  .dashboard__cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    a {
+      margin-bottom: 0;
+    }
+  }
+  .low-stock div[class*="col-"] {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .product-grid .upload {
+    grid-column: 1/-1;
+  }
+  .pending__payment .page__title {
+    margin-bottom: 15px !important;
+  }
+  .pending__payment table td,
+  .pending__payment table th {
+    padding: 0.5rem;
+  }
+  // mobile nav
+  .mobile-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    z-index: 1000;
+
+    ul {
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        flex: 1;
+        text-align: center;
+        position: relative;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 12px;
+          color: #333;
+          padding-top: 5px;
+          text-decoration: none;
+        }
+
+        .footer-icon {
+          font-size: 18px;
+          margin-bottom: 2px;
+          i {
+            font-size: 18px;
+          }
+        }
+
+        &.active a {
+          color: #007bff;
+        }
+        &:nth-child(1).active ~ .indicator {
+          left: 0%;
+        }
+
+        &:nth-child(2).active ~ .indicator {
+          left: 25%;
+        }
+
+        &:nth-child(3).active ~ .indicator {
+          left: 50%;
+        }
+      }
+
+      .indicator {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% / 4);
+        height: 3px;
+        background-color: #007bff;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+  .table-responsive-md {
+    overflow-x: auto;
+  }
+  .table td,
+  .table th {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  // ProductGrid
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    .product-card:only-child,
+    .product-card:nth-last-child(2):nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .product-card {
+    background: #fff;
+    border: none;
+  }
+  .product-card__sales,
+  .product-card__prices {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .product-card__image {
+    height: 160px;
+  }
+  .product-card__uddoog-price strong,
+  .product-card__seller-price strong {
+    background: #f0d5f3;
+    display: inline-block;
+    line-height: normal;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
+  .product-card__seller-price strong {
+    background: #e0ebf9;
+  }
+  .pagination .btn-outline {
+    background: #fff;
+  }
+  .btn-outline {
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+  }
+  .form-control,.el-select__wrapper {
+    border: none;
+}
+.data-card__actions {
+    background: #f6f6ff;
+    margin: 15px -20px -20px;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+}

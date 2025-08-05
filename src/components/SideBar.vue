@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside :class="['sidebar', { show: isSidebarVisible }]">
     <div class="sidebar__customer">
       <div class="sidebar__customer-logo">
         <img v-if="isCollapse" src="@/assets/images/logo.svg" alt="logo" />
@@ -26,17 +26,17 @@
         </router-link>
       </el-menu-item>
       <el-menu-item index="2">
-        <router-link :to="{ name: 'dashboard' }">
+        <router-link :to="{ name: 'dashboard' }" @click.native="closeMenu">
           <i class="icon-apps"></i>
           <span>Dashboard</span>
         </router-link>
       </el-menu-item>
 
       <el-menu-item index="4">
-        <router-link :to="{ name: 'orders' }"><i class="icon-shopping-cart"></i> <span>My Orders</span> </router-link>
+        <router-link :to="{ name: 'orders' }" @click.native="closeMenu"><i class="icon-shopping-cart"></i> <span>My Orders</span> </router-link>
       </el-menu-item>
       <el-menu-item index="5">
-        <router-link :to="{ name: 'customers' }">
+        <router-link :to="{ name: 'customers' }" @click.native="closeMenu">
           <i class="icon-users"></i>
           <span>My Customers</span>
         </router-link>
@@ -48,48 +48,57 @@
         </router-link>
       </el-menu-item> -->
       <el-menu-item index="6">
-        <router-link :to="{ name: 'myProducts' }"><i class="icon-product"></i> <span>My Product</span> </router-link>
+        <router-link :to="{ name: 'myProducts' }" @click.native="closeMenu"><i class="icon-product"></i> <span>My Product</span> </router-link>
       </el-menu-item>
       <el-menu-item index="7">
-        <router-link :to="{ name: 'wishList' }"> <i class="icon-heart"></i> <span>Wish List</span></router-link>
+        <router-link :to="{ name: 'wishList' }" @click.native="closeMenu"> <i class="icon-heart"></i> <span>Wish List</span></router-link>
       </el-menu-item>
       <el-menu-item index="8">
-        <router-link :to="{ name: 'transaction' }"> <i class="icon-document-signed"></i> <span>Transaction History</span></router-link>
+        <router-link :to="{ name: 'transaction' }" @click.native="closeMenu"> <i class="icon-document-signed"></i> <span>Transaction History</span></router-link>
       </el-menu-item>
       <el-menu-item index="9">
-        <router-link :to="{ name: 'withdraw' }"> <i class="icon-card"></i> <span>Withdraw Money</span></router-link>
+        <router-link :to="{ name: 'withdraw' }" @click.native="closeMenu"> <i class="icon-card"></i> <span>Withdraw Money</span></router-link>
       </el-menu-item>
       <el-menu-item index="10">
-        <router-link :to="{ name: 'moderators' }"><i class="icon-user"></i> <span>Manage Moderators</span> </router-link>
+        <router-link :to="{ name: 'moderators' }" @click.native="closeMenu"><i class="icon-user"></i> <span>Manage Moderators</span> </router-link>
       </el-menu-item>
       <el-menu-item index="11">
-        <router-link :to="{ name: 'notifications' }"> <i class="icon-bell"></i> <span>Notification</span> <span class="ml-auto">(5)</span></router-link>
+        <router-link :to="{ name: 'notifications' }" @click.native="closeMenu"> <i class="icon-bell"></i> <span>Notification</span> <span class="ml-auto">(5)</span></router-link>
       </el-menu-item>
       <el-menu-item index="12">
-        <router-link :to="{ name: 'settings' }"><i class="icon-settings"></i> <span>Settings</span> </router-link>
+        <router-link :to="{ name: 'settings' }" @click.native="closeMenu"><i class="icon-settings"></i> <span>Settings</span> </router-link>
       </el-menu-item>
       <el-menu-item index="13">
-        <router-link :to="{ name: 'warranties' }"><i class="icon-receipt"></i> <span>Warranty Products</span> </router-link>
+        <router-link :to="{ name: 'warranties' }" @click.native="closeMenu"><i class="icon-receipt"></i> <span>Warranty Products</span> </router-link>
       </el-menu-item>
       <el-menu-item index="14">
-        <router-link :to="{ name: 'tickets' }"> <i class="icon-headset"></i> <span>Support Center</span> </router-link>
+        <router-link :to="{ name: 'tickets' }" @click.native="closeMenu"> <i class="icon-headset"></i> <span>Support Center</span> </router-link>
       </el-menu-item>
       <el-menu-item index="15">
         <a @click="logout"> <i class="icon-sign-out"></i> <span>Log Out</span></a>
       </el-menu-item>
     </el-menu>
   </aside>
+  
 </template>
 <script>
 export default {
   name: "SideBar",
-
+ props: {
+    isSidebarVisible: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       //
     };
   },
   methods: {
+    closeMenu() {
+      this.$emit("close-sidebar"); // notify parent to hide sidebar
+    },
     logout() {
       localStorage.removeItem("sellerToken");
       this.$router.push({ name: "login" });

@@ -83,6 +83,23 @@
         "shopInvoice": true,
         "shopLicence": null
       }
+    },
+    {
+      "id": "c55b",
+      "phoneNumber": "01964037334",
+      "personalInfo": {
+        "fullName": "Mr. Kazi Zaman",
+        "email": "zaman.kazi1989@gmail.com"
+      },
+      "shopInfo": {
+        "shopName": "Zaman Store",
+        "shopAddress": "13/15, Road 4/A, Block - B, Nobodoy Housing Society",
+        "district": "Dhaka",
+        "website": "https://www.blaze-computer.com",
+        "shopInvoice": false,
+        "licenseNo": "4343642",
+        "expired": "26 Jun 2027"
+      }
     }
   ],
   "customers": [
@@ -798,7 +815,8 @@
         "latitude": "23.822350",
         "longitude": "90.365417"
       },
-      "browser": "Mozilla/5.0 (Windows NT 10.0)"
+      "browser": "Mozilla/5.0 (Windows NT 10.0)",
+      "id": "6f6b"
     },
     {
       "date": "Jan 6, 2025",
@@ -809,7 +827,8 @@
         "latitude": "23.797911",
         "longitude": "90.414391"
       },
-      "browser": "iPhone OS 18_3_1"
+      "browser": "iPhone OS 18_3_1",
+      "id": "ee93"
     },
     {
       "date": "Jan 16, 2024",
@@ -820,7 +839,8 @@
         "latitude": "23.746466",
         "longitude": "90.376015"
       },
-      "browser": "Mozilla/5.0 (Windows NT 10.0)"
+      "browser": "Mozilla/5.0 (Windows NT 10.0)",
+      "id": "e7f2"
     },
     {
       "date": "Jan 8, 2024",
@@ -831,7 +851,8 @@
         "latitude": "45.780394",
         "longitude": "1.333978"
       },
-      "browser": "iPhone OS 17_5_1 like Mac OS X"
+      "browser": "iPhone OS 17_5_1 like Mac OS X",
+      "id": "e6d7"
     }
   ]
 }

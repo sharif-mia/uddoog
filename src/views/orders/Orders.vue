@@ -1,7 +1,7 @@
 <template>
   <h2 class="page__title">Recent Orders</h2>
   <div class="mb-4">
-    <div class="row">
+    <div class="row gap-xs">
       <div class="col-4">
         <div class="order-card">
           <div class="order-card__header">
