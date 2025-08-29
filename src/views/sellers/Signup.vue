@@ -230,7 +230,7 @@
             </li>
           </ul>
         </div>
-        <button class="btn btn-full" type="button" @click="submitForm">Payment</button>
+        <button class="btn btn-full mb-3" type="button" @click="submitForm">Payment</button>
       </div>
     </div>
   </div>

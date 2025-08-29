@@ -6,9 +6,11 @@
   transition: transform 0.2s;
   display: block;
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  @media all and (min-width: 768px) {
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   }
 
   &__image {
@@ -23,28 +25,28 @@
       mix-blend-mode: multiply;
     }
   }
-&__actions{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1;
-  &-action {
-    background: $white;
-    color: $black;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    &:not(:last-child){
-      margin-bottom: .5rem;
+  &__actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+    &-action {
+      background: $white;
+      color: $black;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
     }
   }
-}
-  
+
   &__discount {
     position: absolute;
     top: 10px;
@@ -115,7 +117,6 @@
       font-size: 1rem;
       i {
         font-size: 14px;
-        
       }
     }
   }

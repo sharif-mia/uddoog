@@ -73,7 +73,37 @@
   <div class="mt-4" v-if="payments.length != 0">
     <div class="card">
       <div class="table-responsive-md">
-        <table class="table">
+         <div class="xs-only">
+          <DataCard v-for="payment in payments" :key="payment.id" :expanded="expandedCard === payment.id" @toggle="expandedCard = expandedCard === payment.id ? null : payment.id">
+            <template #title>
+              <h4>TX - 114909165</h4>
+            </template>
+            <template #content>
+            
+              <div class="data-card__item data-card__item-full">
+                Payment Amount <strong> {{ payment.amount }}</strong>
+              </div>
+              <div class="data-card__item">
+                Transfer to <strong>{{ payment.transferTo }}</strong>
+              </div>
+              <div class="data-card__item">
+                <div>Status</div>
+                 <span class="badge bg-success" v-if="payment.status === 'Successful'">{{ payment.status }}</span>
+                <span class="badge bg-warning" v-else-if="payment.status === 'Pending'">{{ payment.status }}</span>
+                <span class="badge bg-danger" v-else>{{ payment.status }}</span>
+              </div>
+              <div class="data-card__item data-card__item-full">
+                Date <strong> {{ formatDate(new Date(payment.date)) }}</strong>
+              </div>
+             
+            </template>
+            <template #actions>
+              <a class="btn-view"><i class="icon-eye"></i>View</a>
+                <a class="btn-delete text-danger" @click.prevent="deleteItem(payment.id)"><i class="icon-trash"></i>Delete</a>
+            </template>
+          </DataCard>
+        </div>
+        <table class="table hide-xs">
           <thead>
             <tr>
               <th>
@@ -118,21 +148,24 @@
       </div>
     </div>
     <div class="d-flex align-center justify-between mt-3">
-      <button class="btn btn-outline">Previous</button>
+      <button class="btn btn-outline hide-xs">Previous</button>
       <el-pagination layout="prev, pager, next" :total="1000" />
-      <button class="btn btn-outline">Next</button>
+      <button class="btn btn-outline hide-xs">Next</button>
     </div>
   </div>
   <div v-else><h3>There is no Payments</h3></div>
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
 export default {
   name: "Payments",
+  components: { DataCard },
   data() {
     return {
       editPayments: false,
       currentTab: "bKash",
+      expandedCard: null,
       payments: [
         {
           id: 1,

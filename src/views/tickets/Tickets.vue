@@ -14,7 +14,18 @@
   </h2>
   <div class="card">
     <div v-if="tickets.length != 0" class="table-responsive-md">
-      <table class="table">
+      <div class="xs-only">
+        <div class="data-card" v-for="ticket in tickets" :key="ticket.id">
+          <router-link class="data-card__header" :to="{ name: 'ticketDetails', params: { id: ticket.id } }">
+            <div class="data-card__title">
+                <h4>{{ ticket.orderIssue }}</h4>
+                <span>{{ ticket.subject }}</span>
+            </div>
+            <i class="icon-right"></i>
+          </router-link>
+        </div>
+      </div>
+      <table class="table hide-xs">
         <thead>
           <tr>
             <th>Type</th>
@@ -28,14 +39,16 @@
             <td>{{ ticket.type }}</td>
             <td>
               <router-link class="text-black fw-500" :to="{ name: 'ticketDetails', params: { id: ticket.id } }">
-                <h3>{{ ticket.orderIssue }}</h3>{{ ticket.subject }}
-                </router-link> </td>
+                <h3>{{ ticket.orderIssue }}</h3>
+                {{ ticket.subject }}
+              </router-link>
+            </td>
             <td>
-               <span class="badge bg-warning" v-if="ticket.status === 'OPEN'">{{ ticket.status }}</span>
-               <span class="badge bg-success" v-else-if="ticket.status === 'Closed'">{{ ticket.status }}</span>
-               <span class="badge bg-danger" v-else-if="ticket.status === 'Pending'">{{ ticket.status }}</span>
-               <span class="badge bg-info" v-else-if="ticket.status === 'Cancel'">{{ ticket.status }}</span>
-              </td>
+              <span class="badge bg-warning" v-if="ticket.status === 'OPEN'">{{ ticket.status }}</span>
+              <span class="badge bg-success" v-else-if="ticket.status === 'Closed'">{{ ticket.status }}</span>
+              <span class="badge bg-danger" v-else-if="ticket.status === 'Pending'">{{ ticket.status }}</span>
+              <span class="badge bg-info" v-else-if="ticket.status === 'Cancel'">{{ ticket.status }}</span>
+            </td>
             <td>{{ formatDate(ticket.lastUpdated) }}</td>
           </tr>
         </tbody>
@@ -44,10 +57,10 @@
     <div v-else><h3>There is no tickets</h3></div>
   </div>
   <div class="d-flex align-center justify-between mt-3">
-    <button class="btn btn-outline" @click="previousPage">Previous</button>
+    <button class="btn btn-outline hide-xs" @click="previousPage">Previous</button>
     <!-- <span>{{ currentPage }} of {{ totalPages }}</span> -->
     <el-pagination layout="prev, pager, next" :total="1000" />
-    <button class="btn btn-outline" @click="nextPage">Next</button>
+    <button class="btn btn-outline hide-xs" @click="nextPage">Next</button>
   </div>
 </template>
 
@@ -87,8 +100,8 @@ export default {
 </script>
 <style scoped>
 h3 {
-    margin: 0;
-    font-size: .875rem;
-    font-weight: 600;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 </style>

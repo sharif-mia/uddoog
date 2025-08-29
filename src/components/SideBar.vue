@@ -1,5 +1,7 @@
 <template>
   <aside :class="['sidebar', { show: isSidebarVisible }]">
+    <button class="xs-only btn hide-sidebar" @click="closeMenu"><i class="icon-cross"></i></button>
+    <div class="xs-only sidebar-overlay" @click="closeMenu"></div>
     <div class="sidebar__customer">
       <div class="sidebar__customer-logo">
         <img v-if="isCollapse" src="@/assets/images/logo.svg" alt="logo" />

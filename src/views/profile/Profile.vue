@@ -15,7 +15,7 @@
           <router-link class="btn" :to="{ name: 'rewards' }"> 🏆 My Rewards </router-link>
         </div>
       </div>
-      <div class="personal-info card mb-4 p-3">
+      <div class="personal-info personal-info-data card mb-4 p-3">
         <div class="row">
           <div class="col-6 mb-3">
             <label class="form-label">Total Balance</label>

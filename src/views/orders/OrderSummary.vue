@@ -6,7 +6,7 @@
       <template #title="">
         <h4>Order For <strong>Kazi Zaman</strong></h4>
       </template>
-      <div class="card p-0 mt-3 col-gap">
+      <div class="card p-0 mt-3 cols-gap">
         <div class="table-responsive-md">
           <table class="table">
             <thead>
@@ -114,7 +114,7 @@
       <template #title="">
         <h4>Order For <strong>Hasan Mahmud</strong></h4>
       </template>
-      <div class="card p-0 mt-3 col-gap">
+      <div class="card p-0 mt-3 cols-gap">
         <div class="table-responsive-md">
           <table class="table">
             <thead>
@@ -130,7 +130,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>
+                <td class="white-space-wrap">
                   <a href="" class="order-summary__product">
                     <img src="https://www.bdshop.com/pub/media/catalog/product/cache/eaf695a7c2edd83636a0242f7ce59484/h/a/havit-71-gaming-headset-headphones-with-microphonergb-light-for-pc-xbox-professional-gamer-h2019u.jpg" alt="" />
                     <h2>Havit H2019U Game Note USB 7.1 Surround Sound RGB Gaming Headphone</h2>

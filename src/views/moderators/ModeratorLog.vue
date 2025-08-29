@@ -1,10 +1,10 @@
 <template>
   <div>
     <h2 class="page__title gap-3 d-flex">
-        <router-link class="btn-back" :to="{ name: 'moderators' }">
+      <router-link class="btn-back" :to="{ name: 'moderators' }">
         <i class="icon-arrow-left"></i>
       </router-link>
-      Log Details for {{ moderator.name }}
+      Logs of {{ moderator.name }}
       <div class="d-flex ml-auto gap-3">
         <a class="btn btn-outline">
           <i class="icon-filter"></i>
@@ -14,15 +14,42 @@
     </h2>
     <div class="card">
       <div v-if="moderatorLogs.length != 0" class="table-responsive-md">
-        <table class="table">
+        <div class="xs-only">
+          <DataCard v-for="moderator in moderatorLogs" :key="moderator.id" :expanded="expandedCard === moderator.id" @toggle="expandedCard = expandedCard === moderator.id ? null : moderator.id">
+            <template #title>
+              <h4>{{ moderator.area }}</h4>
+              <span class="d-flex align-items-center"> <i class="icon-calendar mr-2"></i> {{ moderator.date }}</span>
+            </template>
+            <template #content>
+              <div class="data-card__item">Log In <strong> {{ moderator.logIn }}</strong></div>
+              <div class="data-card__item">
+                Log Out
+                <strong>{{ moderator.logOut }}</strong>
+              </div>
+              <div class="data-card__item data-card__item-full">
+                IP Address <strong> {{ moderator.ipAddress }}</strong>
+              </div>
+
+              <div class="data-card__item data-card__item-full">
+                Browser
+                <strong> {{ moderator.browser }}</strong>
+              </div>
+            </template>
+            <template #actions>
+              <a class="text-danger" @click.prevent="deleteItem(moderator.id)"><i class="icon-trash"></i>Delete</a>
+            </template>
+          </DataCard>
+        </div>
+
+        <table class="table hide-xs">
           <thead>
             <tr>
-                <th>
-                  <label class="checkbox">
-                    <input type="checkbox" v-model="selectAll" />
-                    <span class="checkmark"></span>
-                  </label>
-                </th>
+              <th>
+                <label class="checkbox">
+                  <input type="checkbox" v-model="selectAll" />
+                  <span class="checkmark"></span>
+                </label>
+              </th>
               <th>Date</th>
               <th>Log In</th>
               <th>Log Out</th>
@@ -35,12 +62,12 @@
 
           <tbody>
             <tr v-for="(moderator, index) in moderatorLogs" :key="index">
-                <td>
-                  <label class="checkbox">
-                    <input type="checkbox" v-model="selectRow" />
-                    <span class="checkmark"></span>
-                  </label>
-                </td>
+              <td>
+                <label class="checkbox">
+                  <input type="checkbox" v-model="selectRow" />
+                  <span class="checkmark"></span>
+                </label>
+              </td>
               <td>
                 {{ moderator.date }}
               </td>
@@ -57,7 +84,7 @@
               </td>
               <td>{{ moderator.browser }}</td>
               <td class="text-right">
-                <a class="text-danger" @click.prevent="deleteItem(moderator.id)"><i class="icon-trash"></i></a>
+                <a class="text-danger" @click.prevent="deleteItem(moderator.id)"><i class="icon-trash"></i> </a>
               </td>
             </tr>
           </tbody>
@@ -65,20 +92,23 @@
       </div>
       <div v-else><h3>There is no moderators</h3></div>
     </div>
-    <div class="d-flex align-center justify-between mt-3">
-      <button class="btn btn-outline">Previous</button>
+    <div class="pagination d-flex align-center justify-between mt-3">
+      <button class="btn btn-outline hide-xs">Previous</button>
       <el-pagination layout="prev, pager, next" :total="1000" />
-      <button class="btn btn-outline">Next</button>
+      <button class="btn btn-outline hide-xs">Next</button>
     </div>
   </div>
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
 export default {
   name: "moderatorList",
+  components: { DataCard },
   data() {
     return {
       moderator: {},
+      expandedCard: null,
       moderatorLogs: [],
     };
   },

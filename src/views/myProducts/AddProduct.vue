@@ -1,14 +1,14 @@
 <template>
 
-  <h3 class="customer-alert col-gap sticky">Add Product for <strong>Zafar Mia</strong> <span class="ml-auto"><i class="icon-cart"></i>(3)</span></h3>
-  <div class="d-flex mb-4 align-items-center">
+  <h3 class="customer-alert cols-gap sticky">Add Product for <strong>Zafar Mia</strong> <span class="ml-auto"><i class="icon-cart"></i>(3)</span></h3>
+  <div class="d-flex mb-4 align-items-center my-product-filter ">
       <div class="d">
         <button class="btn" type="button">
         <i class="icon-plus"></i>
         Add All Products
       </button>
       </div>
-      <div class="ml-auto d-flex align-items-center gap-3">
+      <div class="ml-auto d-flex align-items-center gap-3 flex-wrap">
         <div class="nav__search"><button class="nav__search__btn"><i class="icon icon-search"></i></button><input class="form-control" type="text" placeholder="What are you looking for"></div>
       <el-select
       v-model="category"

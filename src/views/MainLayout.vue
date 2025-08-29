@@ -14,8 +14,10 @@
       <div class="container d-flex align-center justify-between">
         <router-link class="header__logo" :to="{ name: 'home' }">
           <img src="@/assets/images/logo.svg" alt="" />
-          </router-link>
-          <div class="nav__search"><button class="nav__search__btn"><i class="icon icon-search"></i></button><input class="form-control" type="text" placeholder="What are you looking for"></div>
+        </router-link>
+        <div class="nav__search">
+          <button class="nav__search__btn"><i class="icon icon-search"></i></button><input class="form-control" type="text" placeholder="What are you looking for" />
+        </div>
         <div class="header__links">
           <router-link :to="{ name: 'login' }" v-if="!isLoggedIn">
             <i class="icon-login"></i>
@@ -29,7 +31,7 @@
             <i class="icon-user"></i>
             <span>Dashboard</span>
           </router-link>
-          <router-link :to="{ name: 'signup' }">
+          <router-link class="hide-xs" :to="{ name: 'signup' }">
             <i class="icon-comment"></i>
             <span>Support</span>
           </router-link>
@@ -42,18 +44,18 @@
     <nav class="header__nav">
       <div class="container">
         <ul class="header__nav-list">
-        <li><a href="#">New Products</a></li>
-        <li><a href="#">All Products</a></li>
-        <li><a href="#">Fashion</a></li>
-        <li><a href="#">Furniture</a></li>
-        <li><a href="#">Electronics</a></li>
-        <li><a href="#">Mobile</a></li>
-        <li><a href="#">Health</a></li>
-        <li><a href="#">Computers</a></li>
-        <li><a href="#">Office</a></li>
-        <li><a href="#">Sports</a></li>
-        <li><a href="#">Others</a></li>
-      </ul>
+          <li><a href="#">New Products</a></li>
+          <li><a href="#">All Products</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Furniture</a></li>
+          <li><a href="#">Electronics</a></li>
+          <li><a href="#">Mobile</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Computers</a></li>
+          <li><a href="#">Office</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Others</a></li>
+        </ul>
       </div>
     </nav>
   </header>
@@ -109,7 +111,7 @@
       </div>
       <div class="footer__bottom">
         <div class="footer__legal">
-          © 2022 - 2025 uddoog Inc.
+          <span>© 2022 - 2025 uddoog Inc.</span>
           <a href="#">Terms of use</a>
           <a href="#">Privacy policy</a>
           <a href="#">Your privacy choices</a>
@@ -123,18 +125,33 @@
         </div>
       </div>
     </div>
-   
   </footer>
+  <div class="xs-only"><SideBar :isSidebarVisible="showSidebar" @close-sidebar="showSidebar = false" /></div>
+  <MobileFooter :showSidebar="showSidebar" @toggle-sidebar="toggleSidebar" @close-sidebar="showSidebar = false" />
 </template>
 
 <script>
+import MobileFooter from "@/components/MobileFooter.vue";
+import SideBar from "@/components/SideBar.vue";
 export default {
-  components: {},
-  methods: {},
+  data() {
+    return {
+      showSidebar: false, // initially hidden on mobile
+    };
+  },
+  components: {
+    SideBar,
+    MobileFooter,
+  },
+  methods: {
+    toggleSidebar() {
+      this.showSidebar = !this.showSidebar;
+    },
+  },
   computed: {
     isLoggedIn() {
-      return !!localStorage.getItem('sellerToken');
-    }
-  }
+      return !!localStorage.getItem("sellerToken");
+    },
+  },
 };
 </script>

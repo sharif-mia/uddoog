@@ -52,11 +52,12 @@ table {
       }
     }
   }
-  .badge {
-  display: inline-flex;
+ 
+}
+ .badge {
+    display: inline-flex;
     padding: 0.2rem 0.7rem;
     border-radius: 1.5rem;
     transition: backround 0.2s;
     font-size: 0.75rem;
   }
-}

@@ -28,7 +28,9 @@
 @import "dashboard/moderators";
 @import "responsive";
 
-
+#__vue-devtools-container__{
+    display: none!important;
+}
 // Responsive Design
 @media all and (min-width: 768px) {
     .equal-column {

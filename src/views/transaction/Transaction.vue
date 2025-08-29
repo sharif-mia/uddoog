@@ -5,22 +5,51 @@
     <div class="col-12">
       <form class="transaction__form">
         <el-radio-group v-model="filterBy" aria-label="filterBy control">
-      <el-radio-button value="CashIn">Cash In</el-radio-button>
-      <el-radio-button value="CashOut">Cash Out</el-radio-button>
-    </el-radio-group>
-    <el-radio-group v-model="filterBy" aria-label="filterBy control">
-      <el-radio-button value="Weekly">Weekly</el-radio-button>
-      <el-radio-button value="Monthly">Monthly</el-radio-button>
-    </el-radio-group>
-    <el-date-picker v-model="filterDate" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" :size="size" />
-  </form>
+          <el-radio-button value="CashIn">Cash In</el-radio-button>
+          <el-radio-button value="CashOut">Cash Out</el-radio-button>
+        </el-radio-group>
+        <el-radio-group v-model="filterBy" aria-label="filterBy control">
+          <el-radio-button value="Weekly">Weekly</el-radio-button>
+          <el-radio-button value="Monthly">Monthly</el-radio-button>
+        </el-radio-group>
+        <el-date-picker v-model="filterDate" type="daterange" range-separator="To" start-placeholder="Start date" end-placeholder="End date" :size="size" :teleported="true"  popper-class="date-range-mobile" />
+      </form>
     </div>
   </div>
 
   <div class="mt-4" v-if="transactions.length != 0">
     <div class="card">
       <div class="transactions table-responsive-md">
-        <table class="table">
+        <div class="xs-only">
+          <DataCard v-for="transaction in transactions" :key="transaction.id" :expanded="expandedCard === transaction.id" @toggle="expandedCard = expandedCard === transaction.id ? null : transaction.id">
+            <template #title>
+              <h4 class="cashAmount"><i class="icon-arrow-right" :class="transaction.type === 'CashIn' ? 'cashIn' : 'cashOut'"></i> TX - 114909165</h4>
+            </template>
+            <template #content>
+            
+              <div class="data-card__item data-card__item-full">
+                Transaction Amount <strong> {{ transaction.amount }} TK</strong>
+              </div>
+              <div class="data-card__item">
+                Transfer to <strong>{{ transaction.transferTo }}</strong>
+              </div>
+              <div class="data-card__item">
+                <div>Status</div>
+                <span class="badge bg-success" v-if="transaction.status === 'Successful'">{{ transaction.status }}</span>
+                <span class="badge bg-warning" v-else-if="transaction.status === 'Pending'">{{ transaction.status }}</span>
+                <span class="badge bg-danger" v-else>{{ transaction.status }}</span>
+              </div>
+              <div class="data-card__item data-card__item-full">
+                Date <strong> {{transaction.date}}</strong>
+              </div>
+
+            </template>
+            <template #actions>
+              <a class="btn-delete text-danger" @click.prevent="deleteItem(transaction.id)"><i class="icon-trash"></i> Delete</a>
+            </template>
+          </DataCard>
+        </div>
+        <table class="table hide-xs">
           <thead>
             <tr>
               <th>
@@ -64,22 +93,25 @@
         </table>
       </div>
     </div>
-    <div class="d-flex align-center justify-between mt-3">
-      <button class="btn btn-outline">Previous</button>
+    <div class="pagination d-flex align-center justify-between mt-3">
+      <button class="btn btn-outline hide-xs">Previous</button>
       <el-pagination layout="prev, pager, next" :total="1000" />
-      <button class="btn btn-outline">Next</button>
+      <button class="btn btn-outline hide-xs">Next</button>
     </div>
   </div>
   <div v-else><h3>There is no transactions</h3></div>
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
 export default {
   name: "Transactions",
+  components: { DataCard },
   data() {
     return {
       filterDate: "",
       filterBy: "Weekly",
+      expandedCard: null,
       transactions: [
         {
           id: 1,
@@ -136,4 +168,5 @@ export default {
 .el-radio-button {
   margin-bottom: 0;
 }
+
 </style>

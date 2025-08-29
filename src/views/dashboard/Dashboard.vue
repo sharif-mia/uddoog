@@ -1,29 +1,29 @@
 <template>
   <div class="dashboard__cards">
-        <div class="dashboard__card">
-          <h3 class="text-success"><i class="icon-taka mr-2"></i> 17000</h3>
-          <p>Total Sales - Lifetime</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-primary"><i class="icon-hastag mr-2"></i>30</h3>
-          <p>Total Orders</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-danger"><i class="icon-taka mr-2"></i>2323</h3>
-          <p>Pending Profit</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-warning"><i class="icon-taka mr-2"></i>5000</h3>
-          <p>Lifetime Earning</p>
-        </div>
-        <div class="dashboard__card">
-          <h3 class="text-success"><i class="icon-taka mr-2"></i>3000</h3>
-          <p>Profit(30 Days)</p>
-        </div>
-      </div>
-      
+    <div class="dashboard__card">
+      <h3 class="text-success"><i class="icon-taka mr-2"></i> 17000</h3>
+      <p>Total Sales - Lifetime</p>
+    </div>
+    <div class="dashboard__card">
+      <h3 class="text-primary"><i class="icon-hastag mr-2"></i>30</h3>
+      <p>Total Orders</p>
+    </div>
+    <div class="dashboard__card">
+      <h3 class="text-danger"><i class="icon-taka mr-2"></i>2323</h3>
+      <p>Pending Profit</p>
+    </div>
+    <div class="dashboard__card">
+      <h3 class="text-warning"><i class="icon-taka mr-2"></i>5000</h3>
+      <p>Lifetime Earning</p>
+    </div>
+    <div class="dashboard__card">
+      <h3 class="text-success"><i class="icon-taka mr-2"></i>3000</h3>
+      <p>Profit(30 Days)</p>
+    </div>
+  </div>
+
   <div class="row equal-column">
-    <div class="col-8 col-gap">
+    <div class="col-8 cols-gap">
       <div class="pending__payment">
         <h2 class="page__title m-0 d-flex gap-3 align-center"><i class="icon-time"></i> Unpaid Order</h2>
         <table>
@@ -48,15 +48,17 @@
         </table>
       </div>
     </div>
-    <div class="col-4 col-gap">
+    <div class="col-4 cols-gap">
       <div class="dashboard__track justify-center">
-        <div>
+        <div class="dashboard__track-inner">
           <i class="icon-clock"></i>
-
-          <h2 class="page__title my-2">#Order 123456</h2>
-          <h3><span>Estimated arrival</span> 31th March</h3>
-          <a href="#" class="btn">Track</a>
+          <div>
+            <h2 class="page__title my-2">#Order 123456</h2>
+            <h3><span>Estimated arrival</span> 31th March</h3>
+            <a href="#" class="btn">Track</a>
+          </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -92,7 +94,7 @@
     <div class="col-4">
       <div class="low-stock">
         <h4>Low Stock item</h4>
-        
+
         <div class="row text-center">
           <div class="col-6">
             <a href="#">

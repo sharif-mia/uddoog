@@ -1,6 +1,7 @@
 <template>
-  <section class="container product-details py-5">
-    <div class="py-1 mb-3">
+  <section class="product-details py-5">
+    <div class="container">
+      <div class="py-1 mb-3">
       <div class="breadcrumb">
         <ul class="d-flex">
           <li>
@@ -284,6 +285,7 @@
       <div class="product-grid">
         <Product :product="product" v-for="product in relatedProducts" :key="product.id" />
       </div>
+    </div>
     </div>
   </section>
 </template>

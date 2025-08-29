@@ -49,17 +49,56 @@
     </div>
   </div>
   <h2 class="page__title d-flex">
-      My Order
-      <div class="d-flex ml-auto gap-3">
-        <a class="btn btn-outline">
-          <i class="icon-filter"></i>
-          <span>Filter</span>
-        </a>
-      </div>
-    </h2>
+    My Order
+    <div class="d-flex ml-auto gap-3">
+      <a class="btn btn-outline">
+        <i class="icon-filter"></i>
+        <span>Filter</span>
+      </a>
+    </div>
+  </h2>
   <div class="card">
     <div v-if="orders.length != 0" class="table-responsive-md">
-      <table class="table">
+      <div class="xs-only">
+        <DataCard v-for="order in orders" :key="order.invoice" :expanded="expandedCard === order.invoice" @toggle="expandedCard = expandedCard === order.invoice ? null : order.invoice">
+          <template #title>
+            <h4>{{ order.invoice }}</h4>
+            <span class="d-flex align-items-center"> <i class="icon-calendar mr-2"></i> {{ order.date }} | {{ order.time }}</span>
+          </template>
+          <template #content>
+            <div class="data-card__item">
+              Customer name <strong>{{ order.customer }}</strong>
+            </div>
+            <div class="data-card__item">
+              Customer Phone <strong>{{ order.phone }}</strong>
+            </div>
+            <div class="data-card__item">
+              District <strong>{{ order.district }}</strong>
+            </div>
+            <div class="data-card__item">
+              Profit <strong><i class="icon-taka mr-1"></i>{{ order.profit }}</strong>
+            </div>
+            <div class="data-card__item">
+              Price <strong><i class="icon-taka mr-1"></i>{{ order.price }}</strong>
+            </div>
+            <div class="data-card__item">
+              Our Price <strong><i class="icon-taka mr-1"></i>{{ order.originalPrice }}</strong>
+            </div>
+            <div class="data-card__item">
+              <div>Status</div>
+              <span class="badge bg-warning" v-if="order.status === 'Shipped'">{{ order.status }}</span>
+              <span class="badge bg-success" v-else-if="order.status === 'Successful'">{{ order.status }}</span>
+              <span class="badge bg-danger" v-else-if="order.status === 'Cancel'">{{ order.status }}</span>
+            </div>
+          </template>
+          <template #actions>
+            <router-link v-if="order.status === 'Cancel'" class="btn-edit" :to="{ name: 'orderSummary' }"> <i class="icon-edit"></i> Edit </router-link>
+            <a v-if="order.status === 'Successful' || order.status === 'Cancel'" class="text-danger" @click.prevent="deleteItem(order.invoice)"><i class="icon-trash"></i> Delete</a>
+            <div @click="trackOrders = true" class="btn-edit" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i> Track Order</div>
+          </template>
+        </DataCard>
+      </div>
+      <table class="table hide-xs">
         <thead>
           <tr>
             <th>
@@ -109,7 +148,7 @@
                 <i class="icon-edit"></i>
               </router-link>
               <a v-if="order.status === 'Successful' || order.status === 'Cancel'" class="text-danger" @click.prevent="deleteItem(order.invoice)"><i class="icon-trash"></i></a>
-              <div @click="trackOrders = true" class="btn-edit" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i> </div>
+              <div @click="trackOrders = true" class="btn-edit" v-if="order.status === 'Shipped'"><i class="icon-track mr-1"></i></div>
             </td>
           </tr>
         </tbody>
@@ -117,11 +156,11 @@
     </div>
     <div v-else><h3>There is no orders</h3></div>
   </div>
-  <div class="d-flex align-center justify-between mt-3">
-    <button class="btn btn-outline" @click="previousPage">Previous</button>
+  <div class="pagination d-flex align-center justify-between mt-3">
+    <button class="btn btn-outline hide-xs" @click="previousPage">Previous</button>
     <!-- <span>{{ currentPage }} of {{ totalPages }}</span> -->
     <el-pagination layout="prev, pager, next" :total="1000" />
-    <button class="btn btn-outline" @click="nextPage">Next</button>
+    <button class="btn btn-outline hide-xs" @click="nextPage">Next</button>
   </div>
   <div class="tracking-container" v-if="trackOrders != false">
     <div class="tracking-inner">
@@ -171,20 +210,23 @@
       </el-timeline>
       <div class="text-center">
         <router-link :to="{ name: 'addTicket' }" class="btn btn-outline mr-3">Contact Support</router-link>
-      <a  class="btn " href="#" target="_blank">Track on Courier Page</a>
+        <a class="btn" href="#" target="_blank">Track on Courier Page</a>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
 export default {
+  components: { DataCard },
   data() {
     return {
       orders: [],
       trackOrders: false,
       currentPage: 1,
       totalPages: 10,
+      expandedCard: null,
     };
   },
   mounted() {

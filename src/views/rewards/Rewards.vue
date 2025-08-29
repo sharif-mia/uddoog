@@ -35,7 +35,31 @@
       <div class="mt-3" v-if="rewards.length != 0">
         <div class="card">
           <div class="transactions table-responsive-md">
-            <table class="table">
+            <div class="xs-only">
+              <DataCard v-for="reward in rewards" :key="reward.id" :expanded="expandedCard === reward.id" @toggle="expandedCard = expandedCard === reward.id ? null : reward.id">
+                <template #title>
+                  <h4 class="cashAmount"><i class="icon-arrow-right cashIn"></i> {{ reward.points }}</h4>
+                </template>
+                <template #content>
+                  <div class="data-card__item data-card__item-full">
+                    Earned by <strong> {{ reward.action }}</strong>
+                  </div>
+                  <div class="data-card__item">
+                    <div>Status</div>
+                    <span class="badge bg-success" v-if="reward.status === 'Successful'">{{ reward.status }}</span>
+                    <span class="badge bg-warning" v-else-if="reward.status === 'Pending'">{{ reward.status }}</span>
+                    <span class="badge bg-danger" v-else>{{ reward.status }}</span>
+                  </div>
+                  <div class="data-card__item data-card__item-full">
+                    Date <strong> {{ reward.date }}</strong>
+                  </div>
+                </template>
+                <template #actions>
+                  <a class="btn-delete m-auto text-danger" @click.prevent="deleteItem(reward.id)"><i class="icon-trash"></i>Delete</a>
+                </template>
+              </DataCard>
+            </div>
+            <table class="table hide-xs">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -49,7 +73,7 @@
                 <tr v-for="reward in rewards" :key="reward.id">
                   <td>{{ formatDate(new Date(reward.date)) }}</td>
                   <td>
-                    <strong class="cashAmount text-success"> <i class="icon-arrow-right cashIn" ></i>{{ reward.points }}</strong>
+                    <strong class="cashAmount text-success"> <i class="icon-arrow-right cashIn"></i>{{ reward.points }}</strong>
                   </td>
                   <td>{{ reward.action }}</td>
                   <td>
@@ -66,9 +90,9 @@
           </div>
         </div>
         <div class="d-flex align-center justify-between mt-3">
-          <button class="btn btn-outline">Previous</button>
+          <button class="btn btn-outline hide-xs">Previous</button>
           <el-pagination layout="prev, pager, next" :total="1000" />
-          <button class="btn btn-outline">Next</button>
+          <button class="btn btn-outline hide-xs">Next</button>
         </div>
       </div>
       <div v-else><h3>There is no Rewards</h3></div>
@@ -83,7 +107,31 @@
       <div class="mt-3" v-if="rewards.length != 0">
         <div class="card">
           <div class="transactions table-responsive-md">
-            <table class="table">
+            <div class="xs-only">
+              <DataCard v-for="reward in rewards" :key="reward.id" :expanded="expandedCard === reward.id" @toggle="expandedCard = expandedCard === reward.id ? null : reward.id">
+                <template #title>
+                  <h4 class="cashAmount"><i class="icon-arrow-right cashOut"></i> {{ reward.points }}</h4>
+                </template>
+                <template #content>
+                  <div class="data-card__item data-card__item-full">
+                    Used by <strong> {{ reward.action }}</strong>
+                  </div>
+                  <div class="data-card__item">
+                    <div>Status</div>
+                    <span class="badge bg-success" v-if="reward.status === 'Successful'">{{ reward.status }}</span>
+                    <span class="badge bg-warning" v-else-if="reward.status === 'Pending'">{{ reward.status }}</span>
+                    <span class="badge bg-danger" v-else>{{ reward.status }}</span>
+                  </div>
+                  <div class="data-card__item data-card__item-full">
+                    Date <strong> {{ reward.date }}</strong>
+                  </div>
+                </template>
+                <template #actions>
+                  <a class="btn-delete m-auto text-danger" @click.prevent="deleteItem(reward.id)"><i class="icon-trash"></i>Delete</a>
+                </template>
+              </DataCard>
+            </div>
+            <table class="table hide-xs">
               <thead>
                 <tr>
                   <th>Date</th>
@@ -97,7 +145,7 @@
                 <tr v-for="reward in rewards" :key="reward.id">
                   <td>{{ formatDate(new Date(reward.date)) }}</td>
                   <td>
-                    <strong class="cashAmount text-danger"> <i class="icon-arrow-right cashOut" ></i>{{ reward.points }}</strong>
+                    <strong class="cashAmount text-danger"> <i class="icon-arrow-right cashOut"></i>{{ reward.points }}</strong>
                   </td>
                   <td>{{ reward.action }}</td>
                   <td>
@@ -114,9 +162,9 @@
           </div>
         </div>
         <div class="d-flex align-center justify-between mt-3">
-          <button class="btn btn-outline">Previous</button>
+          <button class="btn btn-outline hide-xs">Previous</button>
           <el-pagination layout="prev, pager, next" :total="1000" />
-          <button class="btn btn-outline">Next</button>
+          <button class="btn btn-outline hide-xs">Next</button>
         </div>
       </div>
       <div v-else><h3>There is no Rewards</h3></div>
@@ -125,11 +173,14 @@
 </template>
 
 <script>
+import DataCard from "@/components/DataCard.vue";
 export default {
   name: "Rewards",
+  components: { DataCard },
   data() {
     return {
       activeName: "Earned",
+      expandedCard: null,
       rewards: [
         {
           id: 1,

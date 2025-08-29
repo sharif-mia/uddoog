@@ -140,7 +140,7 @@
           <span v-if="currentSubSubcategory" class="breadcrumb-item"> > {{ currentSubSubcategory.name }} </span>
         </div>
 
-        <h2 class="page__title col-gap">Category name</h2>
+        <h2 class="page__title cols-gap">Category name</h2>
 
         <div class="product-content-filter mb-4">
           <button class="btn" type="button">

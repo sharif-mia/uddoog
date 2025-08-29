@@ -14,30 +14,14 @@
             <img src="@/assets/images/logo.svg" alt="" />
 
             <form @submit.prevent="login">
-              <h1>Hi There!</h1>
-              <p>Welcome back to Uddoog Platform</p>
+              <h1>Forgot password?</h1>
               <div class="form-group">
                 <label class="form-label">E-mail</label>
                 <input class="form-control" v-model="email" required placeholder="Enter your E-mail" />
               </div>
+              
               <div class="form-group">
-                <label class="form-label">Password</label>
-                <div class="password">
-                  <input v-model="password" required class="form-control" :type="showPassword ? 'text' : 'password'" />
-                  <span class="password-toggle" @click="togglePassword">
-                    <i :class="{ 'icon-eye-off': showPassword, 'icon-eye': !showPassword }"></i>
-                  </span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="checkbox">
-                  <input type="checkbox" v-model="rememberAuth" />
-                  <span class="checkmark"></span> Remember Me
-                </label>
-              </div>
-              <router-link :to="{ name: 'forgotPassword' }">Forgot password?</router-link>
-              <div class="form-group">
-                <button type="submit" class="btn btn-full" :disabled="!password && !email">Login</button>
+                <button type="submit" class="btn btn-full justify-center" :disabled="!email">Submit</button>
               </div>
             </form>
             <div class="text-center">
